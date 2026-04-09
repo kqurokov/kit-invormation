@@ -77,7 +77,6 @@
             box-shadow: 0 25px 45px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,245,250,0.4) inset;
             padding: 24px 28px 38px 28px;
             border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.2s ease;
         }
         .title-wrapper { text-align: center; margin-bottom: 32px; }
         .title-main {
@@ -94,19 +93,12 @@
             background: rgba(255,255,255,0.3);
             backdrop-filter: blur(8px);
             border-radius: 60px;
-            transition: all 0.25s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid rgba(255,255,255,0.4);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 8px 20px 8px 12px;
-        }
-        .link-block:hover {
-            background: rgba(255,255,255,0.5);
-            transform: translateY(-3px);
-            border-color: rgba(255,255,255,0.7);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .link-icon {
             width: 50px;
@@ -126,10 +118,8 @@
             font-family: 'Quicksand', sans-serif;
             padding: 12px 8px;
             color: #2c6e8a;
-            transition: color 0.2s ease;
         }
         .link-text { font-weight: 700; font-size: 21px; color: #2c6e8a; }
-        .link-block:hover .link-text { color: #1a5276; }
         .double-buttons { display: flex; gap: 16px; margin-top: 20px; }
         .half-btn {
             flex: 1;
@@ -142,16 +132,8 @@
             font-family: 'Quicksand', sans-serif;
             color: #2c6e8a;
             border: 1px solid rgba(255,255,255,0.4);
-            transition: all 0.2s ease;
             cursor: pointer;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .half-btn:hover {
-            background: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            color: #1a5276;
         }
         .separator-wrap { margin-top: 32px; margin-bottom: 8px; }
         hr {
@@ -159,7 +141,6 @@
             border: none;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), rgba(255,255,255,0.8), rgba(255,255,255,0.5), transparent);
-            border-radius: 10px;
         }
         .signature {
             text-align: right;
@@ -208,7 +189,6 @@
             display: flex;
             justify-content: space-between;
             background: rgba(255,245,250,0.25);
-            backdrop-filter: blur(5px);
             border-radius: 60px;
             padding: 12px 24px;
             margin-bottom: 25px;
@@ -222,7 +202,6 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             background: rgba(255,245,250,0.2);
-            backdrop-filter: blur(4px);
             border-radius: 48px;
             padding: 20px;
             margin-bottom: 25px;
@@ -241,18 +220,10 @@
             font-family: 'M PLUS Rounded 1c', sans-serif;
             color: #2c6e8a;
             cursor: pointer;
-            transition: all 0.2s ease;
             border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-        }
-        .cell:hover {
-            background: rgba(255,255,255,0.6);
-            transform: scale(0.97);
-            border-color: rgba(255,255,255,0.8);
         }
         .reset-game, .close-game, .close-bio {
             background: rgba(255,255,255,0.3);
-            backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.4);
             border-radius: 60px;
             padding: 12px 20px;
@@ -260,13 +231,8 @@
             font-weight: 700;
             color: #2c6e8a;
             cursor: pointer;
-            transition: 0.2s;
             width: 100%;
             margin-top: 10px;
-        }
-        .reset-game:hover, .close-game:hover, .close-bio:hover {
-            background: rgba(255,255,255,0.5);
-            transform: translateY(-2px);
         }
         .game-status {
             font-size: 18px;
@@ -280,21 +246,16 @@
         }
         .bio-item {
             background: rgba(255,245,250,0.25);
-            backdrop-filter: blur(5px);
             border-radius: 50px;
             padding: 12px 18px;
             margin-bottom: 12px;
             text-align: left;
-            border: 1px solid rgba(255,255,255,0.3);
         }
         .bio-label { font-size: 13px; font-weight: 600; color: #2c6e8a; margin-bottom: 4px; }
         .bio-value { font-size: 17px; font-weight: 700; color: #1a5276; }
-        .map-container { margin-top: 10px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
-        .map-container iframe { width: 100%; height: 160px; border: none; display: block; }
-        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+        .map-container iframe { width: 100%; height: 160px; border: none; border-radius: 28px; margin-top: 10px; }
         .social-link {
             background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(5px);
             border-radius: 50px;
             padding: 8px 14px;
             text-decoration: none;
@@ -304,29 +265,17 @@
             font-weight: 600;
             font-size: 15px;
             color: #2c6e8a;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.2s ease;
+            margin-top: 6px;
         }
-        .social-link:hover {
-            background: rgba(255,255,255,0.45);
-            transform: translateX(5px);
-            color: #1a5276;
-        }
-        .social-icon { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-        .username-list { display: flex; flex-direction: column; gap: 6px; }
+        .social-icon { width: 32px; height: 32px; border-radius: 50%; }
         .username-item {
             font-size: 15px;
             padding: 5px 10px;
             border-radius: 40px;
             background: rgba(255,245,250,0.25);
             text-align: center;
+            margin-top: 5px;
             cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.2s ease;
-        }
-        .username-item:hover {
-            background: rgba(200,220,240,0.5);
-            transform: translateX(5px);
         }
 
         .music-area {
@@ -342,10 +291,7 @@
             gap: 12px;
             cursor: grab;
             white-space: nowrap;
-            transition: none;
         }
-        .music-area:active { cursor: grabbing; }
-        .music-area.dragging { opacity: 0.8; cursor: grabbing; }
         .now-playing {
             font-family: 'Quicksand', sans-serif;
             font-weight: 600;
@@ -354,13 +300,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            pointer-events: none;
-        }
-        .divider {
-            width: 1px;
-            height: 20px;
-            background: rgba(44,110,138,0.5);
-            margin: 0 4px;
         }
         .led-indicator {
             width: 10px;
@@ -377,21 +316,14 @@
             font-size: 18px;
             cursor: pointer;
             color: #2c6e8a;
-            transition: transform 0.2s ease;
             width: 28px;
             height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .play-pause-btn:hover { transform: scale(1.1); }
         .volume-control { display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; }
-        .volume-icon { font-size: 16px; color: #2c6e8a; transition: transform 0.2s ease; }
-        .volume-icon:hover { transform: scale(1.05); }
+        .volume-icon { font-size: 16px; color: #2c6e8a; }
         .volume-slider { width: 0; overflow: hidden; transition: width 0.25s ease; opacity: 0; }
         .volume-control:hover .volume-slider { width: 70px; opacity: 1; }
-        .volume-slider input { width: 100%; cursor: pointer; background: #2c6e8a; height: 3px; border-radius: 3px; -webkit-appearance: none; }
-        .volume-slider input::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: #2c6e8a; cursor: pointer; border: none; }
+        .volume-slider input { width: 100%; cursor: pointer; background: #2c6e8a; height: 3px; border-radius: 3px; }
 
         @media (min-width: 769px) {
             body { padding: 40px 20px 60px; display: flex; justify-content: center; align-items: center; }
@@ -409,63 +341,54 @@
                 flex-direction: column;
                 gap: 15px;
                 flex-shrink: 0;
-                border: 1px solid rgba(255,255,255,0.3);
             }
-            .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.1); }
-            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+            .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
             .main-card { margin: 0; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 20px 16px 30px; display: block; }
-            .mobile-container { display: flex; flex-direction: column; gap: 20px; max-width: 100%; margin: 0 auto; }
-            .main-card { padding: 18px 16px 24px 16px; border-radius: 40px 28px 44px 28px; }
-            .title-main { font-size: 36px; }
-            .title-wrapper { margin-bottom: 20px; }
+            body { padding: 20px 16px 20px; display: block; }
+            .mobile-container { display: flex; flex-direction: column; gap: 16px; max-width: 100%; margin: 0 auto; }
+            .main-card { padding: 20px 18px 30px 18px; border-radius: 40px 28px 44px 28px; }
+            .title-main { font-size: 38px; }
             .link-icon { width: 42px; height: 42px; }
-            .link-text { font-size: 17px; }
-            .link-item { padding: 10px 6px; }
-            .link-block { padding: 5px 14px 5px 8px; }
+            .link-text { font-size: 18px; }
             .half-btn { padding: 10px 8px; font-size: 16px; }
-            .separator-wrap { margin-top: 20px; }
-            .signature { font-size: 11px; padding: 4px 12px; }
-            .double-buttons { margin-top: 16px; gap: 12px; }
-            .game-card, .bio-card { padding: 20px 18px; border-radius: 44px 26px 44px 26px; }
-            .game-title, .bio-title { font-size: 30px; }
-            .cell { font-size: 44px; border-radius: 22px; }
-            .tic-tac-grid { gap: 10px; padding: 14px; }
-            .score-board { font-size: 15px; padding: 8px 16px; }
+            .separator-wrap { margin-top: 24px; }
+            .signature { font-size: 12px; padding: 4px 12px; }
+            .game-card, .bio-card { padding: 22px 20px; border-radius: 48px 28px 48px 28px; }
+            .game-title, .bio-title { font-size: 32px; }
+            .cell { font-size: 48px; border-radius: 24px; }
+            .tic-tac-grid { gap: 10px; padding: 16px; }
+            .score-board { font-size: 16px; padding: 8px 18px; }
             .bio-item { padding: 10px 14px; }
-            .bio-value { font-size: 15px; }
             .map-container iframe { height: 130px; }
             .gif-section {
                 width: 100%;
                 background: rgba(255,250,250,0.25);
                 backdrop-filter: blur(12px);
                 border-radius: 28px;
-                padding: 10px 8px;
+                padding: 12px 10px;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                gap: 8px;
+                gap: 10px;
                 border: 1px solid rgba(255,255,255,0.3);
-                margin-top: 0;
             }
-            .gif-item { flex: 1; max-width: 90px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.1); }
-            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+            .gif-item { flex: 1; max-width: 100px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
             .music-area { padding: 6px 14px; gap: 8px; }
-            .now-playing { font-size: 11px; }
+            .now-playing { font-size: 12px; }
             .play-pause-btn { font-size: 14px; width: 24px; height: 24px; }
             .volume-icon { font-size: 13px; }
-            .volume-control:hover .volume-slider { width: 60px; }
         }
         @media (max-width: 480px) {
-            .title-main { font-size: 30px; }
-            .link-text { font-size: 15px; }
-            .link-icon { width: 36px; height: 36px; }
-            .cell { font-size: 38px; }
-            .gif-item { max-width: 75px; }
-            .half-btn { font-size: 15px; padding: 8px 6px; }
+            .title-main { font-size: 32px; }
+            .link-text { font-size: 16px; }
+            .link-icon { width: 38px; height: 38px; }
+            .cell { font-size: 40px; }
+            .gif-item { max-width: 80px; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -476,7 +399,7 @@
 <div class="overlay"></div>
 
 <div class="desktop-layout" style="display: none;" id="desktopLayout">
-    <div class="main-card">
+    <div class="main-card" id="mainCardDesktop">
         <div class="title-wrapper"><div class="title-main">Переходник</div></div>
         <div class="links-container">
             <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
@@ -499,7 +422,7 @@
 </div>
 
 <div class="mobile-container" style="display: none;" id="mobileContainer">
-    <div class="main-card">
+    <div class="main-card" id="mainCardMobile">
         <div class="title-wrapper"><div class="title-main">Переходник</div></div>
         <div class="links-container">
             <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
@@ -552,9 +475,9 @@
 
 <div class="music-area" id="musicArea">
     <div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div>
-    <div class="divider"></div>
+    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
     <button class="play-pause-btn" id="playPauseBtn">⏸</button>
-    <div class="divider"></div>
+    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
     <div class="volume-control"><span class="volume-icon" id="volumeIcon">🔊</span><div class="volume-slider"><input type="range" id="volumeSlider" min="0" max="100" value="70"></div></div>
 </div>
 
@@ -569,7 +492,7 @@
             desktopLayout.style.display = 'none';
             mobileContainer.style.display = 'flex';
             mobileContainer.style.flexDirection = 'column';
-            mobileContainer.style.gap = '20px';
+            mobileContainer.style.gap = '16px';
         } else {
             desktopLayout.style.display = 'flex';
             mobileContainer.style.display = 'none';
@@ -581,15 +504,15 @@
         const mainBg = document.getElementById('mainBg'); mainBg.src = 'fon.png'; mainBg.onerror = function() { mainBg.style.display = 'none'; };
         const bioBg = document.getElementById('bioBg'); bioBg.src = 'fon2.png'; bioBg.onerror = function() { bioBg.style.display = 'none'; };
         
-        let bioBtns, gameBtns, gifSectionDesktop, gifSectionMobile;
+        let bioBtns, gameBtns, gifSection;
         if (isMobile) {
             bioBtns = [document.getElementById('bioButtonMob')];
             gameBtns = [document.getElementById('gameButtonMob')];
-            gifSectionMobile = document.getElementById('gifSectionMobile');
+            gifSection = document.getElementById('gifSectionMobile');
         } else {
             bioBtns = [document.getElementById('bioButton')];
             gameBtns = [document.getElementById('gameButton')];
-            gifSectionDesktop = document.getElementById('gifSectionDesktop');
+            gifSection = document.getElementById('gifSectionDesktop');
         }
         
         const bioPage = document.getElementById('bioPage');
@@ -599,29 +522,25 @@
         
         function openBio() { 
             bioPage.classList.add('active'); 
-            if (!isMobile && gifSectionDesktop) gifSectionDesktop.style.display = 'none';
-            if (isMobile && gifSectionMobile) gifSectionMobile.style.display = 'none';
+            if (gifSection) gifSection.style.display = 'none';
             document.body.style.overflow = 'hidden'; 
             bioBg.classList.add('show');
         }
         function closeBio() { 
             bioPage.classList.remove('active'); 
-            if (!isMobile && gifSectionDesktop) gifSectionDesktop.style.display = 'flex';
-            if (isMobile && gifSectionMobile) gifSectionMobile.style.display = 'flex';
+            if (gifSection) gifSection.style.display = isMobile ? 'flex' : 'flex';
             document.body.style.overflow = 'auto'; 
             bioBg.classList.remove('show');
         }
         function openGame() { 
             gamePage.classList.add('active'); 
-            if (!isMobile && gifSectionDesktop) gifSectionDesktop.style.display = 'none';
-            if (isMobile && gifSectionMobile) gifSectionMobile.style.display = 'none';
+            if (gifSection) gifSection.style.display = 'none';
             document.body.style.overflow = 'hidden'; 
             if(bioBg.classList.contains('show')) bioBg.classList.remove('show');
         }
         function closeGame() { 
             gamePage.classList.remove('active'); 
-            if (!isMobile && gifSectionDesktop) gifSectionDesktop.style.display = 'flex';
-            if (isMobile && gifSectionMobile) gifSectionMobile.style.display = 'flex';
+            if (gifSection) gifSection.style.display = isMobile ? 'flex' : 'flex';
             document.body.style.overflow = 'auto';
         }
         
@@ -752,66 +671,10 @@
         function savePos() { const rect = musicArea.getBoundingClientRect(); localStorage.setItem('musicAreaPosition', JSON.stringify({ left: rect.left, top: rect.top })); }
         function loadPos() { const saved = localStorage.getItem('musicAreaPosition'); if(saved){ const pos=JSON.parse(saved); musicArea.style.left=pos.left+'px'; musicArea.style.top=pos.top+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; } else { musicArea.style.left='50%'; musicArea.style.top='20px'; musicArea.style.transform='translateX(-50%)'; } }
         loadPos();
-        
-        let drag = false;
-        let startX = 0, startY = 0;
-        let elementStartX = 0, elementStartY = 0;
-        
-        function onDragStart(clientX, clientY) {
-            if (document.activeElement && (document.activeElement.closest('.play-pause-btn') || document.activeElement.closest('.volume-control'))) return;
-            drag = true;
-            startX = clientX;
-            startY = clientY;
-            const rect = musicArea.getBoundingClientRect();
-            elementStartX = rect.left;
-            elementStartY = rect.top;
-            musicArea.style.transition = 'none';
-            musicArea.classList.add('dragging');
-        }
-        
-        function onDragMove(clientX, clientY) {
-            if (!drag) return;
-            let newX = elementStartX + (clientX - startX);
-            let newY = elementStartY + (clientY - startY);
-            newX = Math.max(5, Math.min(window.innerWidth - musicArea.offsetWidth - 5, newX));
-            newY = Math.max(5, Math.min(window.innerHeight - musicArea.offsetHeight - 5, newY));
-            musicArea.style.left = newX + 'px';
-            musicArea.style.top = newY + 'px';
-            musicArea.style.right = 'auto';
-            musicArea.style.transform = 'none';
-        }
-        
-        function onDragEnd() {
-            if (drag) {
-                drag = false;
-                musicArea.classList.remove('dragging');
-                musicArea.style.transition = '';
-                savePos();
-            }
-        }
-        
-        if (isMobile) {
-            musicArea.addEventListener('touchstart', (e) => {
-                if (e.target.closest('.play-pause-btn') || e.target.closest('.volume-control')) return;
-                e.preventDefault();
-                const touch = e.touches[0];
-                onDragStart(touch.clientX, touch.clientY);
-            });
-            window.addEventListener('touchmove', (e) => {
-                if (!drag) return;
-                e.preventDefault();
-                const touch = e.touches[0];
-                onDragMove(touch.clientX, touch.clientY);
-            });
-            window.addEventListener('touchend', onDragEnd);
-        } else {
-            musicArea.addEventListener('mousedown', (e) => {
-                if (e.target.closest('.play-pause-btn') || e.target.closest('.volume-control')) return;
-                onDragStart(e.clientX, e.clientY);
-            });
-            window.addEventListener('mousemove', (e) => { onDragMove(e.clientX, e.clientY); });
-            window.addEventListener('mouseup', onDragEnd);
-        }
+        let drag=false, startX=0,startY=0, elX=0,elY=0;
+        musicArea.addEventListener('mousedown',(e)=>{ if(e.target.closest('.play-pause-btn')||e.target.closest('.volume-control')) return; drag=true; startX=e.clientX; startY=e.clientY; const rect=musicArea.getBoundingClientRect(); elX=rect.left; elY=rect.top; musicArea.style.transition='none'; musicArea.classList.add('dragging'); });
+        window.addEventListener('mousemove',(e)=>{ if(!drag) return; let nx=elX+(e.clientX-startX), ny=elY+(e.clientY-startY); nx=Math.max(5,Math.min(window.innerWidth-musicArea.offsetWidth-5,nx)); ny=Math.max(5,Math.min(window.innerHeight-musicArea.offsetHeight-5,ny)); musicArea.style.left=nx+'px'; musicArea.style.top=ny+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; });
+        window.addEventListener('mouseup',()=>{ if(drag){ drag=false; musicArea.classList.remove('dragging'); musicArea.style.transition=''; savePos(); } });
     })();
 </script>
 </body>
