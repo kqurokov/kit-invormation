@@ -13,7 +13,6 @@
             user-select: none;
         }
 
-        /* ===== БАЗОВЫЕ СТИЛИ (ДЛЯ ВСЕХ УСТРОЙСТВ) ===== */
         body {
             font-family: 'Quicksand', 'M PLUS Rounded 1c', 'Poppins', sans-serif;
             min-height: 100vh;
@@ -21,7 +20,6 @@
             background: linear-gradient(145deg, #b3e0ff 0%, #c7e9ff 25%, #ffe0f0 70%, #ffd9e8 100%);
         }
 
-        /* ОБЩИЕ ЭЛЕМЕНТЫ */
         .main-bg {
             position: fixed;
             top: 0;
@@ -68,7 +66,6 @@
             z-index: -1;
         }
 
-        /* ОСНОВНАЯ КАРТОЧКА (адаптивная) */
         .main-card {
             position: relative;
             z-index: 10;
@@ -80,6 +77,7 @@
             box-shadow: 0 25px 45px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,245,250,0.4) inset;
             padding: 24px 28px 38px 28px;
             border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
         }
         .title-wrapper { text-align: center; margin-bottom: 32px; }
         .title-main {
@@ -96,12 +94,19 @@
             background: rgba(255,255,255,0.3);
             backdrop-filter: blur(8px);
             border-radius: 60px;
+            transition: all 0.25s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid rgba(255,255,255,0.4);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 8px 20px 8px 12px;
+        }
+        .link-block:hover {
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.7);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .link-icon {
             width: 50px;
@@ -121,8 +126,10 @@
             font-family: 'Quicksand', sans-serif;
             padding: 12px 8px;
             color: #2c6e8a;
+            transition: color 0.2s ease;
         }
         .link-text { font-weight: 700; font-size: 21px; color: #2c6e8a; }
+        .link-block:hover .link-text { color: #1a5276; }
         .double-buttons { display: flex; gap: 16px; margin-top: 20px; }
         .half-btn {
             flex: 1;
@@ -135,8 +142,16 @@
             font-family: 'Quicksand', sans-serif;
             color: #2c6e8a;
             border: 1px solid rgba(255,255,255,0.4);
+            transition: all 0.2s ease;
             cursor: pointer;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .half-btn:hover {
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            color: #1a5276;
         }
         .separator-wrap { margin-top: 32px; margin-bottom: 8px; }
         hr {
@@ -144,6 +159,7 @@
             border: none;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), rgba(255,255,255,0.8), rgba(255,255,255,0.5), transparent);
+            border-radius: 10px;
         }
         .signature {
             text-align: right;
@@ -158,7 +174,6 @@
         }
         .clearfix { clear: both; }
 
-        /* СТРАНИЦЫ BIO И ИГРА */
         .game-page, .bio-page {
             position: fixed;
             top: 0;
@@ -193,6 +208,7 @@
             display: flex;
             justify-content: space-between;
             background: rgba(255,245,250,0.25);
+            backdrop-filter: blur(5px);
             border-radius: 60px;
             padding: 12px 24px;
             margin-bottom: 25px;
@@ -206,6 +222,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             background: rgba(255,245,250,0.2);
+            backdrop-filter: blur(4px);
             border-radius: 48px;
             padding: 20px;
             margin-bottom: 25px;
@@ -224,10 +241,18 @@
             font-family: 'M PLUS Rounded 1c', sans-serif;
             color: #2c6e8a;
             cursor: pointer;
+            transition: all 0.2s ease;
             border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+        .cell:hover {
+            background: rgba(255,255,255,0.6);
+            transform: scale(0.97);
+            border-color: rgba(255,255,255,0.8);
         }
         .reset-game, .close-game, .close-bio {
             background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.4);
             border-radius: 60px;
             padding: 12px 20px;
@@ -235,8 +260,13 @@
             font-weight: 700;
             color: #2c6e8a;
             cursor: pointer;
+            transition: 0.2s;
             width: 100%;
             margin-top: 10px;
+        }
+        .reset-game:hover, .close-game:hover, .close-bio:hover {
+            background: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
         }
         .game-status {
             font-size: 18px;
@@ -250,16 +280,21 @@
         }
         .bio-item {
             background: rgba(255,245,250,0.25);
+            backdrop-filter: blur(5px);
             border-radius: 50px;
             padding: 12px 18px;
             margin-bottom: 12px;
             text-align: left;
+            border: 1px solid rgba(255,255,255,0.3);
         }
         .bio-label { font-size: 13px; font-weight: 600; color: #2c6e8a; margin-bottom: 4px; }
         .bio-value { font-size: 17px; font-weight: 700; color: #1a5276; }
-        .map-container iframe { width: 100%; height: 160px; border: none; border-radius: 28px; margin-top: 10px; }
+        .map-container { margin-top: 10px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+        .map-container iframe { width: 100%; height: 160px; border: none; display: block; }
+        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
         .social-link {
             background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(5px);
             border-radius: 50px;
             padding: 8px 14px;
             text-decoration: none;
@@ -269,20 +304,31 @@
             font-weight: 600;
             font-size: 15px;
             color: #2c6e8a;
-            margin-top: 6px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
         }
-        .social-icon { width: 32px; height: 32px; border-radius: 50%; }
+        .social-link:hover {
+            background: rgba(255,255,255,0.45);
+            transform: translateX(5px);
+            color: #1a5276;
+        }
+        .social-icon { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+        .username-list { display: flex; flex-direction: column; gap: 6px; }
         .username-item {
             font-size: 15px;
             padding: 5px 10px;
             border-radius: 40px;
             background: rgba(255,245,250,0.25);
             text-align: center;
-            margin-top: 5px;
             cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+        }
+        .username-item:hover {
+            background: rgba(200,220,240,0.5);
+            transform: translateX(5px);
         }
 
-        /* МУЗЫКАЛЬНЫЙ БЛОК */
         .music-area {
             position: fixed;
             z-index: 1000;
@@ -296,7 +342,10 @@
             gap: 12px;
             cursor: grab;
             white-space: nowrap;
+            transition: none;
         }
+        .music-area:active { cursor: grabbing; }
+        .music-area.dragging { opacity: 0.8; cursor: grabbing; }
         .now-playing {
             font-family: 'Quicksand', sans-serif;
             font-weight: 600;
@@ -305,6 +354,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            pointer-events: none;
+        }
+        .divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(44,110,138,0.5);
+            margin: 0 4px;
         }
         .led-indicator {
             width: 10px;
@@ -321,16 +377,22 @@
             font-size: 18px;
             cursor: pointer;
             color: #2c6e8a;
+            transition: transform 0.2s ease;
             width: 28px;
             height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .play-pause-btn:hover { transform: scale(1.1); }
         .volume-control { display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; }
-        .volume-icon { font-size: 16px; color: #2c6e8a; }
+        .volume-icon { font-size: 16px; color: #2c6e8a; transition: transform 0.2s ease; }
+        .volume-icon:hover { transform: scale(1.05); }
         .volume-slider { width: 0; overflow: hidden; transition: width 0.25s ease; opacity: 0; }
         .volume-control:hover .volume-slider { width: 70px; opacity: 1; }
-        .volume-slider input { width: 100%; cursor: pointer; background: #2c6e8a; height: 3px; border-radius: 3px; }
+        .volume-slider input { width: 100%; cursor: pointer; background: #2c6e8a; height: 3px; border-radius: 3px; -webkit-appearance: none; }
+        .volume-slider input::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; border-radius: 50%; background: #2c6e8a; cursor: pointer; border: none; }
 
-        /* ===== ДЕСКТОПНАЯ ВЕРСИЯ (гифки сбоку) ===== */
         @media (min-width: 769px) {
             body { padding: 40px 20px 60px; display: flex; justify-content: center; align-items: center; }
             .desktop-layout { display: flex; gap: 30px; align-items: flex-start; justify-content: center; max-width: 900px; width: 100%; margin: 0 auto; }
@@ -347,13 +409,13 @@
                 flex-direction: column;
                 gap: 15px;
                 flex-shrink: 0;
+                border: 1px solid rgba(255,255,255,0.3);
             }
-            .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
-            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+            .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.1); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
             .main-card { margin: 0; }
         }
 
-        /* ===== МОБИЛЬНАЯ ВЕРСИЯ (гифки внизу на всю ширину) ===== */
         @media (max-width: 768px) {
             body { padding: 20px 16px 20px; display: block; }
             .mobile-container { display: flex; flex-direction: column; gap: 16px; max-width: 100%; margin: 0 auto; }
@@ -371,8 +433,6 @@
             .score-board { font-size: 16px; padding: 8px 18px; }
             .bio-item { padding: 10px 14px; }
             .map-container iframe { height: 130px; }
-            
-            /* ГИФКИ ВНИЗУ НА ВСЮ ШИРИНУ */
             .gif-section {
                 width: 100%;
                 background: rgba(255,250,250,0.25);
@@ -385,12 +445,13 @@
                 gap: 10px;
                 border: 1px solid rgba(255,255,255,0.3);
             }
-            .gif-item { flex: 1; max-width: 100px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
-            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+            .gif-item { flex: 1; max-width: 100px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.1); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
             .music-area { padding: 6px 14px; gap: 8px; }
             .now-playing { font-size: 12px; }
             .play-pause-btn { font-size: 14px; width: 24px; height: 24px; }
             .volume-icon { font-size: 13px; }
+            .volume-control:hover .volume-slider { width: 60px; }
         }
         @media (max-width: 480px) {
             .title-main { font-size: 32px; }
@@ -407,9 +468,8 @@
 <img class="bio-bg" id="bioBg" alt="фон био">
 <div class="overlay"></div>
 
-<!-- Десктопный контейнер -->
 <div class="desktop-layout" style="display: none;" id="desktopLayout">
-    <div class="main-card" id="mainCardDesktop">
+    <div class="main-card">
         <div class="title-wrapper"><div class="title-main">Переходник</div></div>
         <div class="links-container">
             <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
@@ -431,9 +491,8 @@
     </div>
 </div>
 
-<!-- Мобильный контейнер -->
 <div class="mobile-container" style="display: none;" id="mobileContainer">
-    <div class="main-card" id="mainCardMobile">
+    <div class="main-card">
         <div class="title-wrapper"><div class="title-main">Переходник</div></div>
         <div class="links-container">
             <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
@@ -455,7 +514,6 @@
     </div>
 </div>
 
-<!-- Bio и Game страницы (общие) -->
 <div id="bioPage" class="bio-page">
     <div class="bio-card">
         <div class="bio-title">Bio</div>
@@ -487,18 +545,16 @@
 
 <div class="music-area" id="musicArea">
     <div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div>
-    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
+    <div class="divider"></div>
     <button class="play-pause-btn" id="playPauseBtn">⏸</button>
-    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
+    <div class="divider"></div>
     <div class="volume-control"><span class="volume-icon" id="volumeIcon">🔊</span><div class="volume-slider"><input type="range" id="volumeSlider" min="0" max="100" value="70"></div></div>
 </div>
 
 <script>
     (function() {
-        // Определяем устройство
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) || window.innerWidth <= 768;
         
-        // Показываем нужную версию
         const desktopLayout = document.getElementById('desktopLayout');
         const mobileContainer = document.getElementById('mobileContainer');
         
@@ -512,14 +568,12 @@
             mobileContainer.style.display = 'none';
         }
         
-        // Общие функции
         function calculateAge() { const birth = new Date(2009,4,4); let age = new Date().getFullYear() - birth.getFullYear(); const m = new Date().getMonth() - birth.getMonth(); if (m < 0 || (m === 0 && new Date().getDate() < birth.getDate())) age--; return age; }
         document.getElementById('bioAge').innerText = calculateAge() + ' лет';
         
         const mainBg = document.getElementById('mainBg'); mainBg.src = 'fon.png'; mainBg.onerror = function() { mainBg.style.display = 'none'; };
         const bioBg = document.getElementById('bioBg'); bioBg.src = 'fon2.png'; bioBg.onerror = function() { bioBg.style.display = 'none'; };
         
-        // Получаем элементы в зависимости от версии
         let bioBtns, gameBtns, gifSection;
         if (isMobile) {
             bioBtns = [document.getElementById('bioButtonMob')];
@@ -567,10 +621,8 @@
         bioPage.addEventListener('click', (e) => { if (e.target === bioPage) closeBio(); });
         gamePage.addEventListener('click', (e) => { if (e.target === gamePage) closeGame(); });
         
-        // Usernames
         document.querySelectorAll('.username-item').forEach(el => { el.addEventListener('click', () => { window.open(`https://t.me/${el.getAttribute('data-username')}`, '_blank'); }); });
         
-        // Игра
         let board = Array(9).fill(null);
         let currentPlayer = 'X';
         let gameActive = true;
@@ -647,7 +699,6 @@
         document.getElementById('resetGameBtn').addEventListener('click', () => { resetGameBoard(); if(currentPlayer === 'O') botMove(); });
         resetGameBoard();
         
-        // GIF анимация
         const gifFiles = ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif', '6.gif'];
         function getRandomGifs() { const shuffled = [...gifFiles]; for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];} return shuffled.slice(0,3); }
         function updateGifs() {
@@ -666,7 +717,6 @@
             gifImgs.forEach((img,i)=>{ if(img) { img.style.opacity='0.5'; setTimeout(()=>{ img.src=newG[i]; img.style.opacity='1'; },150); } }); 
         }, 8000);
         
-        // Музыка
         const playlist = ['1.mp3', '2.mp3', '3.mp3'];
         const trackNames = ['Jiwataneho', 'いくつかの夜_いくつかのさよなら', '眩しくて'];
         let currentTrackIndex = 0, audio = new Audio(), isPlaying = false;
@@ -687,15 +737,70 @@
         loadTrack(0);
         setTimeout(() => { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); }, 100);
         
-        // Перетаскивание музыки
         const musicArea = document.getElementById('musicArea');
         function savePos() { const rect = musicArea.getBoundingClientRect(); localStorage.setItem('musicAreaPosition', JSON.stringify({ left: rect.left, top: rect.top })); }
         function loadPos() { const saved = localStorage.getItem('musicAreaPosition'); if(saved){ const pos=JSON.parse(saved); musicArea.style.left=pos.left+'px'; musicArea.style.top=pos.top+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; } else { musicArea.style.left='50%'; musicArea.style.top='20px'; musicArea.style.transform='translateX(-50%)'; } }
         loadPos();
-        let drag=false, startX=0,startY=0, elX=0,elY=0;
-        musicArea.addEventListener('mousedown',(e)=>{ if(e.target.closest('.play-pause-btn')||e.target.closest('.volume-control')) return; drag=true; startX=e.clientX; startY=e.clientY; const rect=musicArea.getBoundingClientRect(); elX=rect.left; elY=rect.top; musicArea.style.transition='none'; musicArea.classList.add('dragging'); });
-        window.addEventListener('mousemove',(e)=>{ if(!drag) return; let nx=elX+(e.clientX-startX), ny=elY+(e.clientY-startY); nx=Math.max(5,Math.min(window.innerWidth-musicArea.offsetWidth-5,nx)); ny=Math.max(5,Math.min(window.innerHeight-musicArea.offsetHeight-5,ny)); musicArea.style.left=nx+'px'; musicArea.style.top=ny+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; });
-        window.addEventListener('mouseup',()=>{ if(drag){ drag=false; musicArea.classList.remove('dragging'); musicArea.style.transition=''; savePos(); } });
+        
+        let drag = false;
+        let startX = 0, startY = 0;
+        let elementStartX = 0, elementStartY = 0;
+        
+        function onDragStart(clientX, clientY) {
+            if (document.activeElement && (document.activeElement.closest('.play-pause-btn') || document.activeElement.closest('.volume-control'))) return;
+            drag = true;
+            startX = clientX;
+            startY = clientY;
+            const rect = musicArea.getBoundingClientRect();
+            elementStartX = rect.left;
+            elementStartY = rect.top;
+            musicArea.style.transition = 'none';
+            musicArea.classList.add('dragging');
+        }
+        
+        function onDragMove(clientX, clientY) {
+            if (!drag) return;
+            let newX = elementStartX + (clientX - startX);
+            let newY = elementStartY + (clientY - startY);
+            newX = Math.max(5, Math.min(window.innerWidth - musicArea.offsetWidth - 5, newX));
+            newY = Math.max(5, Math.min(window.innerHeight - musicArea.offsetHeight - 5, newY));
+            musicArea.style.left = newX + 'px';
+            musicArea.style.top = newY + 'px';
+            musicArea.style.right = 'auto';
+            musicArea.style.transform = 'none';
+        }
+        
+        function onDragEnd() {
+            if (drag) {
+                drag = false;
+                musicArea.classList.remove('dragging');
+                musicArea.style.transition = '';
+                savePos();
+            }
+        }
+        
+        if (isMobile) {
+            musicArea.addEventListener('touchstart', (e) => {
+                if (e.target.closest('.play-pause-btn') || e.target.closest('.volume-control')) return;
+                e.preventDefault();
+                const touch = e.touches[0];
+                onDragStart(touch.clientX, touch.clientY);
+            });
+            window.addEventListener('touchmove', (e) => {
+                if (!drag) return;
+                e.preventDefault();
+                const touch = e.touches[0];
+                onDragMove(touch.clientX, touch.clientY);
+            });
+            window.addEventListener('touchend', onDragEnd);
+        } else {
+            musicArea.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.play-pause-btn') || e.target.closest('.volume-control')) return;
+                onDragStart(e.clientX, e.clientY);
+            });
+            window.addEventListener('mousemove', (e) => { onDragMove(e.clientX, e.clientY); });
+            window.addEventListener('mouseup', onDragEnd);
+        }
     })();
 </script>
 </body>
