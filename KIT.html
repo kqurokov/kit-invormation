@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Kit Information</title>
+    <link rel="icon" type="image/png" href="ava.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Quicksand', 'M PLUS Rounded 1c', 'Poppins', sans-serif;
+            padding: 40px 20px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(145deg, #b3e0ff 0%, #c7e9ff 25%, #ffe0f0 70%, #ffd9e8 100%);
+        }
+
+        .main-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .bio-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            object-fit: cover;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bio-bg.show {
+            opacity: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 240, 250, 0.25) 2%, transparent 2.5%),
+                        radial-gradient(circle at 85% 70%, rgba(210, 230, 255, 0.3) 1.8%, transparent 2%);
+            background-size: 60px 60px, 45px 45px;
+            z-index: -1;
+        }
+
+        .main-card {
+            position: relative;
+            z-index: 10;
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 250, 250, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 52px 32px 58px 32px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 245, 250, 0.4) inset;
+            padding: 24px 28px 38px 28px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .title-wrapper {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 8px 12px;
+        }
+
+        .title-main {
+            font-size: 52px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .links-container {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-block {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px 8px 12px;
+        }
+
+        .link-block:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 21px;
+            font-family: 'Quicksand', 'M PLUS Rounded 1c', sans-serif;
+            letter-spacing: 0.5px;
+            text-align: center;
+            background: transparent;
+            flex: 1;
+            padding: 12px 8px;
+        }
+
+        .link-text {
+            font-weight: 700;
+            font-size: 21px;
+            color: #2c6e8a;
+            text-shadow: none;
+            transition: color 0.2s ease;
+        }
+
+        .link-block:hover .link-text {
+            color: #1a5276;
+        }
+
+        .double-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .half-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 60px;
+            padding: 12px 10px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            color: #2c6e8a;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .half-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            color: #1a5276;
+        }
+
+        .game-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .game-page.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .game-card {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 250, 250, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 60px 32px 60px 32px;
+            padding: 30px 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            position: relative;
+            z-index: 201;
+            margin: auto;
+        }
+
+        .game-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: #2c6e8a;
+            margin-bottom: 15px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(255, 245, 250, 0.25);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            padding: 12px 24px;
+            margin-bottom: 25px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #1a5276;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .score-x, .score-o {
+            background: rgba(255,255,240,0.2);
+            padding: 5px 16px;
+            border-radius: 40px;
+        }
+
+        .tic-tac-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            background: rgba(255, 245, 250, 0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 48px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .cell {
+            aspect-ratio: 1 / 1;
+            background: rgba(255, 250, 250, 0.35);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            font-weight: 800;
+            font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
+            color: #2c6e8a;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .cell:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0.97);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .reset-game {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 60px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            color: #2c6e8a;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .reset-game:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .close-game {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 60px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Quicksand', sans-serif;
+            color: #2c6e8a;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .close-game:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .game-status {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #1a5276;
+            background: rgba(255,245,250,0.3);
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 40px;
+        }
+
+        .bio-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 200;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .bio-page.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .bio-card {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 250, 250, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 60px 32px 60px 32px;
+            padding: 30px 28px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            position: relative;
+            z-index: 201;
+            margin: auto;
+        }
+
+        .bio-title {
+            font-size: 38px;
+            font-weight: 800;
+            color: #2c6e8a;
+            margin-bottom: 25px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
+
+        .bio-item {
+            background: rgba(255, 245, 250, 0.25);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            padding: 12px 18px;
+            margin-bottom: 12px;
+            text-align: left;
+            font-family: 'Quicksand', sans-serif;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .bio-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c6e8a;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .bio-value {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a5276;
+            word-break: break-word;
+        }
+
+        .map-container {
+            margin-top: 10px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 160px;
+            border: none;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            padding: 8px 14px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            color: #2c6e8a;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.45);
+            transform: translateX(5px);
+            color: #1a5276;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .username-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .username-item {
+            font-size: 15px;
+            color: #1a5276;
+            word-break: break-all;
+            padding: 5px 10px;
+            border-radius: 40px;
+            background: rgba(255, 245, 250, 0.25);
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .username-item:hover {
+            background: rgba(200, 220, 240, 0.5);
+            transform: translateX(5px);
+        }
+
+        .close-bio {
+            margin-top: 18px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 60px;
+            padding: 10px 24px;
+            font-weight: 700;
+            color: #2c6e8a;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .separator-wrap {
+            margin-top: 32px;
+            margin-bottom: 8px;
+        }
+        hr {
+            margin: 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), rgba(255,255,255,0.8), rgba(255,255,255,0.5), transparent);
+            border-radius: 10px;
+        }
+
+        .signature {
+            text-align: right;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 600;
+            margin-top: 16px;
+            padding: 6px 16px;
+            border-radius: 40px;
+            float: right;
+            background: #2c6e8a;
+        }
+        .clearfix { clear: both; }
+
+        .music-area {
+            position: fixed;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 60px;
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            cursor: grab;
+            white-space: nowrap;
+        }
+
+        .music-area:active { cursor: grabbing; }
+        .music-area.dragging { transition: none; opacity: 0.8; cursor: grabbing; }
+
+        .now-playing {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2c6e8a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(44, 110, 138, 0.5);
+            margin: 0 4px;
+        }
+
+        .led-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.2s infinite;
+        }
+        .led-green { background: rgba(70, 180, 120, 0.9); box-shadow: 0 0 5px #46b478; }
+        .led-dark { background: rgba(140, 120, 120, 0.7); animation: none; }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .play-pause-btn {
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #2c6e8a;
+            transition: transform 0.2s ease;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-pause-btn:hover { transform: scale(1.1); }
+
+        .volume-control { 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            cursor: pointer;
+            position: relative;
+        }
+        .volume-icon { 
+            font-size: 16px; 
+            color: #2c6e8a;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .volume-icon:hover { transform: scale(1.05); }
+        
+        .volume-slider { 
+            width: 0; 
+            overflow: hidden; 
+            transition: width 0.25s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+        .volume-control:hover .volume-slider { 
+            width: 70px; 
+            opacity: 1;
+        }
+        .volume-slider input { 
+            width: 100%; 
+            cursor: pointer; 
+            background: #2c6e8a; 
+            height: 3px; 
+            border-radius: 3px;
+            -webkit-appearance: none;
+        }
+        .volume-slider input:focus { outline: none; }
+        .volume-slider input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2c6e8a;
+            cursor: pointer;
+            border: none;
+        }
+
+        .gif-section {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 140px;
+            background: rgba(255, 250, 250, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 300;
+        }
+        .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+        .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+
+        @media (max-width: 700px) {
+            .gif-section { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 300px; margin: 20px auto 0; flex-direction: row; justify-content: center; }
+            .gif-item { width: 80px; }
+            .cell { font-size: 48px; }
+            .tic-tac-grid { gap: 8px; padding: 12px; }
+            .volume-control:hover .volume-slider { width: 50px; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<img class="main-bg" id="mainBg" alt="фон">
+<img class="bio-bg" id="bioBg" alt="фон био">
+<div class="overlay"></div>
+
+<div id="mainPage" class="main-card">
+    <div class="title-wrapper"><div class="title-main">Переходник</div></div>
+    <div class="links-container">
+        <div class="link-block"><img class="link-icon" src="my.png" alt="my" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
+        <div class="link-block"><img class="link-icon" src="channel.png" alt="channel" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kiteechannel" target="_blank"><span class="link-text">Канальчик</span></a></div>
+        <div class="link-block"><img class="link-icon" src="shop.png" alt="shop" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/ShopKitee" target="_blank"><span class="link-text">Шоп</span></a></div>
+        <div class="link-block"><img class="link-icon" src="trade.png" alt="trade" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/TradeK1t" target="_blank"><span class="link-text">Чат трейдов</span></a></div>
+    </div>
+    <div class="double-buttons">
+        <button class="half-btn" id="bioButton">Bio</button>
+        <button class="half-btn" id="gameButton">Игра</button>
+    </div>
+    <div class="separator-wrap"><hr></div>
+    <div class="signature">by kqurokov</div><div class="clearfix"></div>
+</div>
+
+<div id="bioPage" class="bio-page">
+    <div class="bio-card">
+        <div class="bio-title">Bio</div>
+        <div class="bio-item"><div class="bio-label">Name</div><div class="bio-value" id="bioName">???</div></div>
+        <div class="bio-item"><div class="bio-label">Pseudo</div><div class="bio-value">Kit, kqurro</div></div>
+        <div class="bio-item"><div class="bio-label">Age</div><div class="bio-value" id="bioAge">-- лет</div></div>
+        <div class="bio-item"><div class="bio-label">Country</div><div class="bio-value">Russia, Moscow</div><div class="map-container"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.35%2C55.55%2C37.85%2C55.85&layer=mapnik&marker=55.75%2C37.62" loading="lazy"></iframe></div></div>
+        <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (???) ???-??-??</div></div>
+        <div class="bio-item"><div class="bio-label">Usernames</div><div class="bio-value"><div class="username-list"><div class="username-item" data-username="kayakqurro">@kayakqurro</div><div class="username-item" data-username="kayakitt">@kayakitt</div><div class="username-item" data-username="kayapanesher">@kayapanesher</div></div></div></div>
+        <div class="bio-item"><div class="bio-label">Social</div><div class="bio-value"><div class="social-links"><a href="https://discord.com/users/kiterbmgo_82301" target="_blank" class="social-link"><img class="social-icon" src="ds.png" alt="discord" onerror="this.style.display='none'"> Discord</a><a href="https://www.youtube.com/@KitBMGO" target="_blank" class="social-link"><img class="social-icon" src="you.png" alt="youtube" onerror="this.style.display='none'"> YouTube</a></div></div></div>
+        <button class="close-bio" id="closeBioButton">Закрыть</button>
+    </div>
+</div>
+
+<div id="gamePage" class="game-page">
+    <div class="game-card">
+        <div class="game-title">Крестики-Нолики</div>
+        <div class="score-board"><span class="score-x">❌ Игрок: <span id="scoreX">0</span></span><span class="score-o">⭕ Бот: <span id="scoreO">0</span></span></div>
+        <div class="game-status" id="gameStatus">Ваш ход (❌)</div>
+        <div class="tic-tac-grid" id="ticTacGrid">
+            <div class="cell" data-index="0"></div><div class="cell" data-index="1"></div><div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div><div class="cell" data-index="4"></div><div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div><div class="cell" data-index="7"></div><div class="cell" data-index="8"></div>
+        </div>
+        <button class="reset-game" id="resetGameBtn">Новая игра</button>
+        <button class="close-game" id="closeGameButton">Закрыть игру</button>
+    </div>
+</div>
+
+<div class="gif-section" id="gifSection"><div class="gif-item"><img id="gif1" alt="gif"></div><div class="gif-item"><img id="gif2" alt="gif"></div><div class="gif-item"><img id="gif3" alt="gif"></div></div>
+<div class="music-area" id="musicArea"><div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div><div class="divider"></div><button class="play-pause-btn" id="playPauseBtn">⏸</button><div class="divider"></div><div class="volume-control"><span class="volume-icon" id="volumeIcon">🔊</span><div class="volume-slider"><input type="range" id="volumeSlider" min="0" max="100" value="70"></div></div></div>
+
+<script>
+    (function() {
+        function calculateAge() { const birth = new Date(2009, 4, 4); let age = new Date().getFullYear() - birth.getFullYear(); const m = new Date().getMonth() - birth.getMonth(); if (m < 0 || (m === 0 && new Date().getDate() < birth.getDate())) age--; return age; }
+        document.getElementById('bioAge').innerText = calculateAge() + ' лет';
+
+        const mainBg = document.getElementById('mainBg'); mainBg.src = 'fon.png'; mainBg.onerror = function() { mainBg.style.display = 'none'; };
+        const bioBg = document.getElementById('bioBg'); bioBg.src = 'fon2.png'; bioBg.onerror = function() { bioBg.style.display = 'none'; };
+
+        const mainPageDiv = document.getElementById('mainPage');
+        const bioPageDiv = document.getElementById('bioPage');
+        const gamePageDiv = document.getElementById('gamePage');
+        const bioBtn = document.getElementById('bioButton');
+        const gameBtn = document.getElementById('gameButton');
+        const closeBioBtn = document.getElementById('closeBioButton');
+        const closeGameBtn = document.getElementById('closeGameButton');
+
+        function openBio() { bioPageDiv.classList.add('active'); mainPageDiv.style.opacity = '0.3'; mainPageDiv.style.pointerEvents = 'none'; document.body.style.overflow = 'hidden'; bioBg.classList.add('show'); }
+        function closeBio() { bioPageDiv.classList.remove('active'); mainPageDiv.style.opacity = '1'; mainPageDiv.style.pointerEvents = 'auto'; document.body.style.overflow = 'auto'; bioBg.classList.remove('show'); }
+        function openGame() { gamePageDiv.classList.add('active'); mainPageDiv.style.opacity = '0.3'; mainPageDiv.style.pointerEvents = 'none'; document.body.style.overflow = 'hidden'; if(bioBg.classList.contains('show')) bioBg.classList.remove('show'); }
+        function closeGame() { gamePageDiv.classList.remove('active'); mainPageDiv.style.opacity = '1'; mainPageDiv.style.pointerEvents = 'auto'; document.body.style.overflow = 'auto'; }
+
+        bioBtn.addEventListener('click', openBio);
+        gameBtn.addEventListener('click', openGame);
+        closeBioBtn.addEventListener('click', closeBio);
+        closeGameBtn.addEventListener('click', closeGame);
+        bioPageDiv.addEventListener('click', (e) => { if (e.target === bioPageDiv) closeBio(); });
+        gamePageDiv.addEventListener('click', (e) => { if (e.target === gamePageDiv) closeGame(); });
+
+        document.querySelectorAll('.username-item').forEach(el => { el.addEventListener('click', () => { window.open(`https://t.me/${el.getAttribute('data-username')}`, '_blank'); }); });
+
+        let board = Array(9).fill(null);
+        let currentPlayer = 'X';
+        let gameActive = true;
+        let scoreX = 0, scoreO = 0;
+        const cells = document.querySelectorAll('.cell');
+        const statusDiv = document.getElementById('gameStatus');
+        const scoreXSpan = document.getElementById('scoreX');
+        const scoreOSpan = document.getElementById('scoreO');
+
+        function updateScoreUI() { scoreXSpan.innerText = scoreX; scoreOSpan.innerText = scoreO; }
+        function updateBoardUI() { cells.forEach((cell, idx) => { cell.innerText = board[idx] || ''; }); }
+        function checkWinner(boardArr) {
+            const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+            for(let w of wins) { const [a,b,c] = w; if(boardArr[a] && boardArr[a]===boardArr[b] && boardArr[a]===boardArr[c]) return boardArr[a]; }
+            return null;
+        }
+        function isDraw(boardArr) { return boardArr.every(cell => cell !== null); }
+        function endGame(winner) {
+            gameActive = false;
+            if(winner === 'X') { scoreX++; statusDiv.innerText = 'Вы победили!'; updateScoreUI(); }
+            else if(winner === 'O') { scoreO++; statusDiv.innerText = 'Бот выиграл'; updateScoreUI(); }
+            else statusDiv.innerText = 'Ничья!';
+        }
+        function resetGameBoard() {
+            board = Array(9).fill(null);
+            gameActive = true;
+            currentPlayer = 'X';
+            updateBoardUI();
+            statusDiv.innerText = 'Ваш ход (❌)';
+        }
+        function makeMove(index, player) {
+            if(!gameActive) return false;
+            if(board[index] !== null) return false;
+            if(player !== currentPlayer) return false;
+            board[index] = player;
+            updateBoardUI();
+            const winner = checkWinner(board);
+            if(winner) { endGame(winner); return true; }
+            if(isDraw(board)) { endGame(null); return true; }
+            currentPlayer = (currentPlayer === 'X' ? 'O' : 'X');
+            statusDiv.innerText = currentPlayer === 'X' ? 'Ваш ход (❌)' : 'Ход бота (⭕)';
+            return true;
+        }
+        function botMove() {
+            if(!gameActive) return;
+            if(currentPlayer !== 'O') return;
+            setTimeout(() => {
+                if(!gameActive || currentPlayer !== 'O') return;
+                let empty = [];
+                for(let i=0;i<9;i++) if(board[i]===null) empty.push(i);
+                if(empty.length===0) return;
+                let best = null;
+                for(let p of ['O','X']) {
+                    for(let idx of empty) {
+                        let sim = [...board];
+                        sim[idx] = p;
+                        if(checkWinner(sim) === p) { best = idx; break; }
+                    }
+                    if(best!==null) break;
+                }
+                if(best===null) best = empty[Math.floor(Math.random()*empty.length)];
+                makeMove(best, 'O');
+            }, 200);
+        }
+        function handleCellClick(e) {
+            const idx = parseInt(e.currentTarget.getAttribute('data-index'));
+            if(!gameActive) return;
+            if(currentPlayer !== 'X') return;
+            if(board[idx] !== null) return;
+            makeMove(idx, 'X');
+            if(gameActive && currentPlayer === 'O') botMove();
+        }
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+        document.getElementById('resetGameBtn').addEventListener('click', () => { resetGameBoard(); if(currentPlayer === 'O') botMove(); });
+        resetGameBoard();
+
+        const gifFiles = ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif', '6.gif'];
+        function getRandomGifs() { const shuffled = [...gifFiles]; for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];} return shuffled.slice(0,3); }
+        function updateGifs() { const gifs = getRandomGifs(); [document.getElementById('gif1'),document.getElementById('gif2'),document.getElementById('gif3')].forEach((img,i)=>{ if(img) { img.src = gifs[i]; img.onerror = ()=>img.src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%232c6e8a"/%3E%3Ctext x="50" y="55" fill="white" font-size="12"%3Egif%3C/text%3E%3C/svg%3E'; } }); }
+        updateGifs(); setInterval(()=>{ const newG = getRandomGifs(); [document.getElementById('gif1'),document.getElementById('gif2'),document.getElementById('gif3')].forEach((img,i)=>{ if(img) { img.style.opacity='0.5'; setTimeout(()=>{ img.src=newG[i]; img.style.opacity='1'; },150); } }); }, 8000);
+
+        const playlist = ['1.mp3', '2.mp3', '3.mp3'];
+        const trackNames = ['Jiwataneho', 'いくつかの夜_いくつかのさよなら', '眩しくて'];
+        let currentTrackIndex = 0, audio = new Audio(), isPlaying = false;
+        const nowPlayingSpan = document.getElementById('nowPlayingText');
+        const playPause = document.getElementById('playPauseBtn');
+        const led = document.getElementById('ledIndicator');
+        const volSlider = document.getElementById('volumeSlider');
+        const volIcon = document.getElementById('volumeIcon');
+        
+        audio.volume = 0.7;
+        
+        function updateNow() { nowPlayingSpan.textContent = trackNames[currentTrackIndex]; }
+        function loadTrack(idx) { 
+            audio.src = playlist[idx]; 
+            audio.load(); 
+            updateNow();
+        }
+        function playTrack() { 
+            audio.play().then(()=>{ 
+                isPlaying=true; 
+                playPause.textContent='⏸'; 
+                led.classList.add('led-green'); 
+                led.classList.remove('led-dark'); 
+            }).catch((e)=>{ 
+                isPlaying=false; 
+                playPause.textContent='▶'; 
+                led.classList.add('led-dark'); 
+                led.classList.remove('led-green'); 
+            }); 
+        }
+        function nextTrack() { 
+            currentTrackIndex = (currentTrackIndex+1)%playlist.length; 
+            loadTrack(currentTrackIndex); 
+            if(isPlaying) playTrack(); 
+        }
+        
+        audio.addEventListener('ended', nextTrack);
+        volSlider.addEventListener('input', (e)=>{ 
+            let v=e.target.value/100; 
+            audio.volume=v; 
+            volIcon.textContent=v===0?'🔇':v<0.4?'🔈':v<0.7?'🔉':'🔊'; 
+        });
+        
+        function togglePlay() { 
+            if(isPlaying){ 
+                audio.pause(); 
+                isPlaying=false; 
+                playPause.textContent='▶'; 
+                led.classList.add('led-dark'); 
+                led.classList.remove('led-green'); 
+            } else { 
+                audio.play().then(()=>{ 
+                    isPlaying=true; 
+                    playPause.textContent='⏸'; 
+                    led.classList.add('led-green'); 
+                    led.classList.remove('led-dark'); 
+                }).catch(e=>{}); 
+            } 
+        }
+        
+        playPause.addEventListener('click', togglePlay);
+        
+        loadTrack(0);
+        setTimeout(() => {
+            audio.play().then(() => {
+                isPlaying = true;
+                playPause.textContent = '⏸';
+                led.classList.add('led-green');
+                led.classList.remove('led-dark');
+            }).catch(() => {
+                isPlaying = false;
+                playPause.textContent = '▶';
+                led.classList.add('led-dark');
+                led.classList.remove('led-green');
+            });
+        }, 100);
+        
+        const musicArea = document.getElementById('musicArea');
+        function savePos() { const rect = musicArea.getBoundingClientRect(); localStorage.setItem('musicAreaPosition', JSON.stringify({ left: rect.left, top: rect.top })); }
+        function loadPos() { const saved = localStorage.getItem('musicAreaPosition'); if(saved){ const pos=JSON.parse(saved); musicArea.style.left=pos.left+'px'; musicArea.style.top=pos.top+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; } else { musicArea.style.left='50%'; musicArea.style.top='20px'; musicArea.style.transform='translateX(-50%)'; } }
+        loadPos();
+        let drag=false, startX=0,startY=0, elX=0,elY=0;
+        musicArea.addEventListener('mousedown',(e)=>{ if(e.target.closest('.play-pause-btn')||e.target.closest('.volume-control')) return; drag=true; startX=e.clientX; startY=e.clientY; const rect=musicArea.getBoundingClientRect(); elX=rect.left; elY=rect.top; musicArea.style.transition='none'; musicArea.classList.add('dragging'); });
+        window.addEventListener('mousemove',(e)=>{ if(!drag) return; let nx=elX+(e.clientX-startX), ny=elY+(e.clientY-startY); nx=Math.max(5,Math.min(window.innerWidth-musicArea.offsetWidth-5,nx)); ny=Math.max(5,Math.min(window.innerHeight-musicArea.offsetHeight-5,ny)); musicArea.style.left=nx+'px'; musicArea.style.top=ny+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; });
+        window.addEventListener('mouseup',()=>{ if(drag){ drag=false; musicArea.classList.remove('dragging'); musicArea.style.transition=''; savePos(); } });
+        volIcon.textContent = '🔊';
+    })();
+</script>
+</body>
+</html>
