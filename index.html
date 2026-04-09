@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Kit Information</title>
     <link rel="icon" type="image/png" href="ava.png">
     <style>
@@ -671,12 +671,205 @@
         .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
         .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
 
-        @media (max-width: 700px) {
-            .gif-section { position: relative; right: auto; top: auto; transform: none; width: 100%; max-width: 300px; margin: 20px auto 0; flex-direction: row; justify-content: center; }
-            .gif-item { width: 80px; }
-            .cell { font-size: 48px; }
-            .tic-tac-grid { gap: 8px; padding: 12px; }
-            .volume-control:hover .volume-slider { width: 50px; }
+        /* ===== АДАПТИВ ПОД ТЕЛЕФОНЫ ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 16px 40px;
+            }
+            .main-card {
+                padding: 20px 18px 30px 18px;
+                border-radius: 40px 28px 44px 28px;
+            }
+            .title-main {
+                font-size: 38px;
+                letter-spacing: 1.5px;
+            }
+            .title-wrapper {
+                margin-bottom: 24px;
+            }
+            .links-container {
+                gap: 12px;
+            }
+            .link-block {
+                padding: 6px 16px 6px 10px;
+                border-radius: 50px;
+            }
+            .link-block:hover {
+                transform: translateY(-2px);
+            }
+            .link-icon {
+                width: 42px;
+                height: 42px;
+            }
+            .link-text {
+                font-size: 18px;
+            }
+            .link-item {
+                font-size: 18px;
+                padding: 10px 6px;
+            }
+            .double-buttons {
+                gap: 12px;
+                margin-top: 18px;
+            }
+            .half-btn {
+                padding: 10px 8px;
+                font-size: 16px;
+                border-radius: 50px;
+            }
+            .half-btn:hover {
+                transform: translateY(-1px);
+            }
+            .game-card {
+                padding: 22px 20px;
+                border-radius: 48px 28px 48px 28px;
+            }
+            .game-title {
+                font-size: 32px;
+            }
+            .score-board {
+                padding: 8px 18px;
+                font-size: 16px;
+                border-radius: 50px;
+            }
+            .score-x, .score-o {
+                padding: 4px 12px;
+            }
+            .tic-tac-grid {
+                gap: 10px;
+                padding: 16px;
+                border-radius: 40px;
+            }
+            .cell {
+                font-size: 48px;
+                border-radius: 24px;
+            }
+            .reset-game {
+                padding: 10px 16px;
+                font-size: 16px;
+                border-radius: 50px;
+            }
+            .close-game {
+                padding: 9px 16px;
+                font-size: 14px;
+                border-radius: 50px;
+            }
+            .game-status {
+                font-size: 16px;
+                padding: 5px 16px;
+            }
+            .bio-card {
+                padding: 22px 20px;
+                border-radius: 48px 28px 48px 28px;
+            }
+            .bio-title {
+                font-size: 32px;
+            }
+            .bio-item {
+                padding: 10px 14px;
+                border-radius: 40px;
+            }
+            .bio-label {
+                font-size: 11px;
+            }
+            .bio-value {
+                font-size: 15px;
+            }
+            .map-container iframe {
+                height: 130px;
+            }
+            .social-link {
+                padding: 7px 12px;
+                font-size: 13px;
+                border-radius: 40px;
+            }
+            .social-icon {
+                width: 28px;
+                height: 28px;
+            }
+            .username-item {
+                font-size: 13px;
+                padding: 5px 8px;
+            }
+            .close-bio {
+                margin-top: 14px;
+                padding: 9px 20px;
+                font-size: 15px;
+            }
+            .signature {
+                font-size: 12px;
+                padding: 4px 12px;
+            }
+            .separator-wrap {
+                margin-top: 24px;
+            }
+            .music-area {
+                padding: 6px 14px;
+                gap: 8px;
+                border-radius: 50px;
+            }
+            .now-playing {
+                font-size: 12px;
+            }
+            .led-indicator {
+                width: 8px;
+                height: 8px;
+            }
+            .divider {
+                height: 16px;
+            }
+            .play-pause-btn {
+                font-size: 14px;
+                width: 24px;
+                height: 24px;
+            }
+            .volume-icon {
+                font-size: 13px;
+            }
+            .volume-control:hover .volume-slider {
+                width: 60px;
+            }
+            .gif-section {
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                top: auto;
+                right: auto;
+                width: auto;
+                max-width: 90%;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 10px 12px;
+                border-radius: 28px;
+            }
+            .gif-item {
+                width: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-main {
+                font-size: 32px;
+            }
+            .link-text {
+                font-size: 16px;
+            }
+            .link-icon {
+                width: 38px;
+                height: 38px;
+            }
+            .cell {
+                font-size: 40px;
+            }
+            .tic-tac-grid {
+                gap: 8px;
+                padding: 12px;
+            }
+            .gif-item {
+                width: 60px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -709,7 +902,7 @@
         <div class="bio-item"><div class="bio-label">Pseudo</div><div class="bio-value">Kit, kqurro</div></div>
         <div class="bio-item"><div class="bio-label">Age</div><div class="bio-value" id="bioAge">-- лет</div></div>
         <div class="bio-item"><div class="bio-label">Country</div><div class="bio-value">Russia, Moscow</div><div class="map-container"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.35%2C55.55%2C37.85%2C55.85&layer=mapnik&marker=55.75%2C37.62" loading="lazy"></iframe></div></div>
-        <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (???) ???-??-??</div></div>
+        <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (???) ???-??-?? </div></div>
         <div class="bio-item"><div class="bio-label">Usernames</div><div class="bio-value"><div class="username-list"><div class="username-item" data-username="kayakqurro">@kayakqurro</div><div class="username-item" data-username="kayakitt">@kayakitt</div><div class="username-item" data-username="kayapanesher">@kayapanesher</div></div></div></div>
         <div class="bio-item"><div class="bio-label">Social</div><div class="bio-value"><div class="social-links"><a href="https://discord.com/users/kiterbmgo_82301" target="_blank" class="social-link"><img class="social-icon" src="ds.png" alt="discord" onerror="this.style.display='none'"> Discord</a><a href="https://www.youtube.com/@KitBMGO" target="_blank" class="social-link"><img class="social-icon" src="you.png" alt="youtube" onerror="this.style.display='none'"> YouTube</a></div></div></div>
         <button class="close-bio" id="closeBioButton">Закрыть</button>
@@ -857,70 +1050,21 @@
         audio.volume = 0.7;
         
         function updateNow() { nowPlayingSpan.textContent = trackNames[currentTrackIndex]; }
-        function loadTrack(idx) { 
-            audio.src = playlist[idx]; 
-            audio.load(); 
-            updateNow();
-        }
-        function playTrack() { 
-            audio.play().then(()=>{ 
-                isPlaying=true; 
-                playPause.textContent='⏸'; 
-                led.classList.add('led-green'); 
-                led.classList.remove('led-dark'); 
-            }).catch((e)=>{ 
-                isPlaying=false; 
-                playPause.textContent='▶'; 
-                led.classList.add('led-dark'); 
-                led.classList.remove('led-green'); 
-            }); 
-        }
-        function nextTrack() { 
-            currentTrackIndex = (currentTrackIndex+1)%playlist.length; 
-            loadTrack(currentTrackIndex); 
-            if(isPlaying) playTrack(); 
-        }
+        function loadTrack(idx) { audio.src = playlist[idx]; audio.load(); updateNow(); }
+        function playTrack() { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{ isPlaying=false; playPause.textContent='▶'; led.classList.add('led-dark'); led.classList.remove('led-green'); }); }
+        function nextTrack() { currentTrackIndex = (currentTrackIndex+1)%playlist.length; loadTrack(currentTrackIndex); if(isPlaying) playTrack(); }
         
         audio.addEventListener('ended', nextTrack);
-        volSlider.addEventListener('input', (e)=>{ 
-            let v=e.target.value/100; 
-            audio.volume=v; 
-            volIcon.textContent=v===0?'🔇':v<0.4?'🔈':v<0.7?'🔉':'🔊'; 
-        });
+        volSlider.addEventListener('input', (e)=>{ let v=e.target.value/100; audio.volume=v; volIcon.textContent=v===0?'🔇':v<0.4?'🔈':v<0.7?'🔉':'🔊'; });
         
         function togglePlay() { 
-            if(isPlaying){ 
-                audio.pause(); 
-                isPlaying=false; 
-                playPause.textContent='▶'; 
-                led.classList.add('led-dark'); 
-                led.classList.remove('led-green'); 
-            } else { 
-                audio.play().then(()=>{ 
-                    isPlaying=true; 
-                    playPause.textContent='⏸'; 
-                    led.classList.add('led-green'); 
-                    led.classList.remove('led-dark'); 
-                }).catch(e=>{}); 
-            } 
+            if(isPlaying){ audio.pause(); isPlaying=false; playPause.textContent='▶'; led.classList.add('led-dark'); led.classList.remove('led-green'); } 
+            else { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); } 
         }
         
         playPause.addEventListener('click', togglePlay);
-        
         loadTrack(0);
-        setTimeout(() => {
-            audio.play().then(() => {
-                isPlaying = true;
-                playPause.textContent = '⏸';
-                led.classList.add('led-green');
-                led.classList.remove('led-dark');
-            }).catch(() => {
-                isPlaying = false;
-                playPause.textContent = '▶';
-                led.classList.add('led-dark');
-                led.classList.remove('led-green');
-            });
-        }, 100);
+        setTimeout(() => { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); }, 100);
         
         const musicArea = document.getElementById('musicArea');
         function savePos() { const rect = musicArea.getBoundingClientRect(); localStorage.setItem('musicAreaPosition', JSON.stringify({ left: rect.left, top: rect.top })); }
