@@ -694,19 +694,12 @@
                 padding: 6px 16px 6px 10px;
                 border-radius: 50px;
             }
-            .link-block:hover {
-                transform: translateY(-2px);
-            }
             .link-icon {
                 width: 42px;
                 height: 42px;
             }
             .link-text {
                 font-size: 18px;
-            }
-            .link-item {
-                font-size: 18px;
-                padding: 10px 6px;
             }
             .double-buttons {
                 gap: 12px;
@@ -715,10 +708,6 @@
             .half-btn {
                 padding: 10px 8px;
                 font-size: 16px;
-                border-radius: 50px;
-            }
-            .half-btn:hover {
-                transform: translateY(-1px);
             }
             .game-card {
                 padding: 22px 20px;
@@ -730,33 +719,17 @@
             .score-board {
                 padding: 8px 18px;
                 font-size: 16px;
-                border-radius: 50px;
-            }
-            .score-x, .score-o {
-                padding: 4px 12px;
-            }
-            .tic-tac-grid {
-                gap: 10px;
-                padding: 16px;
-                border-radius: 40px;
             }
             .cell {
                 font-size: 48px;
                 border-radius: 24px;
             }
-            .reset-game {
-                padding: 10px 16px;
-                font-size: 16px;
-                border-radius: 50px;
+            .tic-tac-grid {
+                gap: 10px;
+                padding: 16px;
             }
-            .close-game {
-                padding: 9px 16px;
-                font-size: 14px;
+            .reset-game, .close-game {
                 border-radius: 50px;
-            }
-            .game-status {
-                font-size: 16px;
-                padding: 5px 16px;
             }
             .bio-card {
                 padding: 22px 20px;
@@ -769,54 +742,54 @@
                 padding: 10px 14px;
                 border-radius: 40px;
             }
-            .bio-label {
-                font-size: 11px;
-            }
-            .bio-value {
-                font-size: 15px;
-            }
             .map-container iframe {
                 height: 130px;
             }
-            .social-link {
-                padding: 7px 12px;
-                font-size: 13px;
-                border-radius: 40px;
-            }
-            .social-icon {
-                width: 28px;
-                height: 28px;
-            }
-            .username-item {
-                font-size: 13px;
-                padding: 5px 8px;
-            }
-            .close-bio {
-                margin-top: 14px;
-                padding: 9px 20px;
-                font-size: 15px;
+            .separator-wrap {
+                margin-top: 24px;
             }
             .signature {
                 font-size: 12px;
                 padding: 4px 12px;
             }
-            .separator-wrap {
-                margin-top: 24px;
+            
+            /* Телефонная версия гифок: под главным блоком, в одну строку, ширина как у main-card */
+            .gif-section {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                max-width: 100%;
+                background: rgba(255, 250, 250, 0.25);
+                backdrop-filter: blur(12px);
+                border-radius: 32px;
+                padding: 12px;
+                margin-top: 20px;
+                margin-bottom: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 12px;
+                z-index: 10;
             }
+            .gif-item {
+                width: calc(33.33% - 8px);
+                max-width: 100px;
+                border-radius: 20px;
+            }
+            .gif-item img {
+                width: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+            }
+            
             .music-area {
                 padding: 6px 14px;
                 gap: 8px;
-                border-radius: 50px;
             }
             .now-playing {
                 font-size: 12px;
-            }
-            .led-indicator {
-                width: 8px;
-                height: 8px;
-            }
-            .divider {
-                height: 16px;
             }
             .play-pause-btn {
                 font-size: 14px;
@@ -828,24 +801,6 @@
             }
             .volume-control:hover .volume-slider {
                 width: 60px;
-            }
-            .gif-section {
-                position: fixed;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                top: auto;
-                right: auto;
-                width: auto;
-                max-width: 90%;
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                padding: 10px 12px;
-                border-radius: 28px;
-            }
-            .gif-item {
-                width: 70px;
             }
         }
 
@@ -863,12 +818,8 @@
             .cell {
                 font-size: 40px;
             }
-            .tic-tac-grid {
-                gap: 8px;
-                padding: 12px;
-            }
             .gif-item {
-                width: 60px;
+                width: calc(33.33% - 6px);
             }
         }
     </style>
@@ -898,11 +849,11 @@
 <div id="bioPage" class="bio-page">
     <div class="bio-card">
         <div class="bio-title">Bio</div>
-        <div class="bio-item"><div class="bio-label">Name</div><div class="bio-value" id="bioName">???</div></div>
+        <div class="bio-item"><div class="bio-label">Name</div><div class="bio-value" id="bioName">Кирилл</div></div>
         <div class="bio-item"><div class="bio-label">Pseudo</div><div class="bio-value">Kit, kqurro</div></div>
         <div class="bio-item"><div class="bio-label">Age</div><div class="bio-value" id="bioAge">-- лет</div></div>
         <div class="bio-item"><div class="bio-label">Country</div><div class="bio-value">Russia, Moscow</div><div class="map-container"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.35%2C55.55%2C37.85%2C55.85&layer=mapnik&marker=55.75%2C37.62" loading="lazy"></iframe></div></div>
-        <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (???) ???-??-?? </div></div>
+        <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (910) 470-20-08</div></div>
         <div class="bio-item"><div class="bio-label">Usernames</div><div class="bio-value"><div class="username-list"><div class="username-item" data-username="kayakqurro">@kayakqurro</div><div class="username-item" data-username="kayakitt">@kayakitt</div><div class="username-item" data-username="kayapanesher">@kayapanesher</div></div></div></div>
         <div class="bio-item"><div class="bio-label">Social</div><div class="bio-value"><div class="social-links"><a href="https://discord.com/users/kiterbmgo_82301" target="_blank" class="social-link"><img class="social-icon" src="ds.png" alt="discord" onerror="this.style.display='none'"> Discord</a><a href="https://www.youtube.com/@KitBMGO" target="_blank" class="social-link"><img class="social-icon" src="you.png" alt="youtube" onerror="this.style.display='none'"> YouTube</a></div></div></div>
         <button class="close-bio" id="closeBioButton">Закрыть</button>
@@ -924,8 +875,24 @@
     </div>
 </div>
 
-<div class="gif-section" id="gifSection"><div class="gif-item"><img id="gif1" alt="gif"></div><div class="gif-item"><img id="gif2" alt="gif"></div><div class="gif-item"><img id="gif3" alt="gif"></div></div>
-<div class="music-area" id="musicArea"><div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div><div class="divider"></div><button class="play-pause-btn" id="playPauseBtn">⏸</button><div class="divider"></div><div class="volume-control"><span class="volume-icon" id="volumeIcon">🔊</span><div class="volume-slider"><input type="range" id="volumeSlider" min="0" max="100" value="70"></div></div></div>
+<div class="gif-section" id="gifSection">
+    <div class="gif-item"><img id="gif1" alt="gif"></div>
+    <div class="gif-item"><img id="gif2" alt="gif"></div>
+    <div class="gif-item"><img id="gif3" alt="gif"></div>
+</div>
+
+<div class="music-area" id="musicArea">
+    <div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div>
+    <div class="divider"></div>
+    <button class="play-pause-btn" id="playPauseBtn">⏸</button>
+    <div class="divider"></div>
+    <div class="volume-control">
+        <span class="volume-icon" id="volumeIcon">🔊</span>
+        <div class="volume-slider">
+            <input type="range" id="volumeSlider" min="0" max="100" value="70">
+        </div>
+    </div>
+</div>
 
 <script>
     (function() {
@@ -942,11 +909,47 @@
         const gameBtn = document.getElementById('gameButton');
         const closeBioBtn = document.getElementById('closeBioButton');
         const closeGameBtn = document.getElementById('closeGameButton');
+        const gifSection = document.getElementById('gifSection');
 
-        function openBio() { bioPageDiv.classList.add('active'); mainPageDiv.style.opacity = '0.3'; mainPageDiv.style.pointerEvents = 'none'; document.body.style.overflow = 'hidden'; bioBg.classList.add('show'); }
-        function closeBio() { bioPageDiv.classList.remove('active'); mainPageDiv.style.opacity = '1'; mainPageDiv.style.pointerEvents = 'auto'; document.body.style.overflow = 'auto'; bioBg.classList.remove('show'); }
-        function openGame() { gamePageDiv.classList.add('active'); mainPageDiv.style.opacity = '0.3'; mainPageDiv.style.pointerEvents = 'none'; document.body.style.overflow = 'hidden'; if(bioBg.classList.contains('show')) bioBg.classList.remove('show'); }
-        function closeGame() { gamePageDiv.classList.remove('active'); mainPageDiv.style.opacity = '1'; mainPageDiv.style.pointerEvents = 'auto'; document.body.style.overflow = 'auto'; }
+        function openBio() { 
+            bioPageDiv.classList.add('active'); 
+            mainPageDiv.style.opacity = '0.3'; 
+            mainPageDiv.style.pointerEvents = 'none'; 
+            document.body.style.overflow = 'hidden'; 
+            bioBg.classList.add('show');
+            if (window.innerWidth <= 768 && gifSection) {
+                gifSection.style.display = 'none';
+            }
+        }
+        function closeBio() { 
+            bioPageDiv.classList.remove('active'); 
+            mainPageDiv.style.opacity = '1'; 
+            mainPageDiv.style.pointerEvents = 'auto'; 
+            document.body.style.overflow = 'auto'; 
+            bioBg.classList.remove('show');
+            if (window.innerWidth <= 768 && gifSection) {
+                gifSection.style.display = 'flex';
+            }
+        }
+        function openGame() { 
+            gamePageDiv.classList.add('active'); 
+            mainPageDiv.style.opacity = '0.3'; 
+            mainPageDiv.style.pointerEvents = 'none'; 
+            document.body.style.overflow = 'hidden'; 
+            if(bioBg.classList.contains('show')) bioBg.classList.remove('show');
+            if (window.innerWidth <= 768 && gifSection) {
+                gifSection.style.display = 'none';
+            }
+        }
+        function closeGame() { 
+            gamePageDiv.classList.remove('active'); 
+            mainPageDiv.style.opacity = '1'; 
+            mainPageDiv.style.pointerEvents = 'auto'; 
+            document.body.style.overflow = 'auto';
+            if (window.innerWidth <= 768 && gifSection) {
+                gifSection.style.display = 'flex';
+            }
+        }
 
         bioBtn.addEventListener('click', openBio);
         gameBtn.addEventListener('click', openGame);
