@@ -13,17 +13,15 @@
             user-select: none;
         }
 
+        /* ===== БАЗОВЫЕ СТИЛИ (ДЛЯ ВСЕХ УСТРОЙСТВ) ===== */
         body {
             font-family: 'Quicksand', 'M PLUS Rounded 1c', 'Poppins', sans-serif;
-            padding: 40px 20px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
             position: relative;
             background: linear-gradient(145deg, #b3e0ff 0%, #c7e9ff 25%, #ffe0f0 70%, #ffd9e8 100%);
         }
 
+        /* ОБЩИЕ ЭЛЕМЕНТЫ */
         .main-bg {
             position: fixed;
             top: 0;
@@ -34,7 +32,6 @@
             object-fit: cover;
             pointer-events: none;
         }
-
         .bio-bg {
             position: fixed;
             top: 0;
@@ -47,11 +44,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
-        .bio-bg.show {
-            opacity: 1;
-        }
-
+        .bio-bg.show { opacity: 1; }
         .overlay {
             position: fixed;
             top: 0;
@@ -62,7 +55,6 @@
             z-index: -1;
             pointer-events: none;
         }
-
         body::before {
             content: "";
             position: fixed;
@@ -71,41 +63,25 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background: radial-gradient(circle at 20% 30%, rgba(255, 240, 250, 0.25) 2%, transparent 2.5%),
-                        radial-gradient(circle at 85% 70%, rgba(210, 230, 255, 0.3) 1.8%, transparent 2%);
-            background-size: 60px 60px, 45px 45px;
+            background: radial-gradient(circle at 20% 30%, rgba(255,240,250,0.25) 2%, transparent 2.5%),
+                        radial-gradient(circle at 85% 70%, rgba(210,230,255,0.3) 1.8%, transparent 2%);
             z-index: -1;
         }
 
-        /* Основной контейнер для всего контента */
-        .content-wrapper {
-            max-width: 680px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        /* ОСНОВНАЯ КАРТОЧКА (адаптивная) */
         .main-card {
             position: relative;
             z-index: 10;
+            max-width: 680px;
             width: 100%;
-            background: rgba(255, 250, 250, 0.25);
+            background: rgba(255,250,250,0.25);
             backdrop-filter: blur(12px);
             border-radius: 52px 32px 58px 32px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 245, 250, 0.4) inset;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,245,250,0.4) inset;
             padding: 24px 28px 38px 28px;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
         }
-
-        .title-wrapper {
-            text-align: center;
-            margin-bottom: 32px;
-            padding: 8px 12px;
-        }
-
+        .title-wrapper { text-align: center; margin-bottom: 32px; }
         .title-main {
             font-size: 52px;
             font-weight: 800;
@@ -113,83 +89,44 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
-            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.2);
         }
-
-        .links-container {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
+        .links-container { margin-top: 15px; display: flex; flex-direction: column; gap: 16px; }
         .link-block {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             backdrop-filter: blur(8px);
             border-radius: 60px;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            width: 100%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.4);
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 8px 20px 8px 12px;
         }
-
-        .link-block:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.7);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
         .link-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
             flex-shrink: 0;
         }
-
         .link-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 1;
+            text-align: center;
             text-decoration: none;
             font-weight: 700;
             font-size: 21px;
-            font-family: 'Quicksand', 'M PLUS Rounded 1c', sans-serif;
-            letter-spacing: 0.5px;
-            text-align: center;
-            background: transparent;
-            flex: 1;
+            font-family: 'Quicksand', sans-serif;
             padding: 12px 8px;
-        }
-
-        .link-text {
-            font-weight: 700;
-            font-size: 21px;
             color: #2c6e8a;
-            text-shadow: none;
-            transition: color 0.2s ease;
         }
-
-        .link-block:hover .link-text {
-            color: #1a5276;
-        }
-
-        .double-buttons {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
-        }
-
+        .link-text { font-weight: 700; font-size: 21px; color: #2c6e8a; }
+        .double-buttons { display: flex; gap: 16px; margin-top: 20px; }
         .half-btn {
             flex: 1;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             backdrop-filter: blur(8px);
             border-radius: 60px;
             padding: 12px 10px;
@@ -197,32 +134,17 @@
             font-weight: 700;
             font-family: 'Quicksand', sans-serif;
             color: #2c6e8a;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.4);
             cursor: pointer;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
-
-        .half-btn:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            color: #1a5276;
-        }
-
-        .separator-wrap {
-            margin-top: 32px;
-            margin-bottom: 8px;
-        }
+        .separator-wrap { margin-top: 32px; margin-bottom: 8px; }
         hr {
             margin: 0;
             border: none;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), rgba(255,255,255,0.8), rgba(255,255,255,0.5), transparent);
-            border-radius: 10px;
         }
-
         .signature {
             text-align: right;
             font-size: 14px;
@@ -236,38 +158,8 @@
         }
         .clearfix { clear: both; }
 
-        /* ГИФКИ - теперь внизу на всю ширину */
-        .gif-section {
-            position: relative;
-            width: 100%;
-            background: rgba(255, 250, 250, 0.25);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            padding: 15px 12px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 15px;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .gif-item { 
-            flex: 1;
-            max-width: 120px;
-            border-radius: 20px; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.3);
-            background: rgba(0,0,0,0.1);
-        }
-        .gif-item img { 
-            width: 100%; 
-            aspect-ratio: 1/1; 
-            object-fit: cover; 
-            display: block;
-        }
-
-        /* Страницы Bio и Game (фиксированные поверх) */
-        .game-page {
+        /* СТРАНИЦЫ BIO И ИГРА */
+        .game-page, .bio-page {
             position: fixed;
             top: 0;
             left: 0;
@@ -284,71 +176,44 @@
             transition: all 0.3s ease;
             overflow-y: auto;
         }
-
-        .game-page.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .game-card {
+        .game-page.active, .bio-page.active { opacity: 1; visibility: visible; }
+        .game-card, .bio-card {
             max-width: 500px;
             width: 100%;
-            background: rgba(255, 250, 250, 0.3);
+            background: rgba(255,250,250,0.3);
             backdrop-filter: blur(20px);
             border-radius: 60px 32px 60px 32px;
             padding: 30px 28px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
             text-align: center;
-            position: relative;
-            z-index: 201;
-            margin: auto;
         }
-
-        .game-title {
-            font-size: 38px;
-            font-weight: 800;
-            color: #2c6e8a;
-            margin-bottom: 15px;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-        }
-
+        .game-title, .bio-title { font-size: 38px; font-weight: 800; color: #2c6e8a; margin-bottom: 15px; font-family: 'M PLUS Rounded 1c', sans-serif; }
         .score-board {
             display: flex;
             justify-content: space-between;
-            background: rgba(255, 245, 250, 0.25);
-            backdrop-filter: blur(5px);
+            background: rgba(255,245,250,0.25);
             border-radius: 60px;
             padding: 12px 24px;
             margin-bottom: 25px;
-            font-family: 'Quicksand', sans-serif;
             font-weight: 700;
             font-size: 20px;
             color: #1a5276;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.3);
         }
-
-        .score-x, .score-o {
-            background: rgba(255,255,240,0.2);
-            padding: 5px 16px;
-            border-radius: 40px;
-        }
-
         .tic-tac-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            background: rgba(255, 245, 250, 0.2);
-            backdrop-filter: blur(4px);
+            background: rgba(255,245,250,0.2);
             border-radius: 48px;
             padding: 20px;
             margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255,255,255,0.4);
         }
-
         .cell {
-            aspect-ratio: 1 / 1;
-            background: rgba(255, 250, 250, 0.35);
+            aspect-ratio: 1/1;
+            background: rgba(255,250,250,0.35);
             backdrop-filter: blur(8px);
             border-radius: 28px;
             display: flex;
@@ -356,61 +221,23 @@
             justify-content: center;
             font-size: 64px;
             font-weight: 800;
-            font-family: 'M PLUS Rounded 1c', 'Quicksand', sans-serif;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
             color: #2c6e8a;
             cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255,255,255,0.5);
         }
-
-        .cell:hover {
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0.97);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .reset-game {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+        .reset-game, .close-game, .close-bio {
+            background: rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.4);
             border-radius: 60px;
             padding: 12px 20px;
             font-size: 18px;
             font-weight: 700;
-            font-family: 'Quicksand', sans-serif;
             color: #2c6e8a;
             cursor: pointer;
-            transition: 0.2s;
             width: 100%;
-            margin-bottom: 12px;
+            margin-top: 10px;
         }
-
-        .reset-game:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .close-game {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 60px;
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 700;
-            font-family: 'Quicksand', sans-serif;
-            color: #2c6e8a;
-            cursor: pointer;
-            transition: 0.2s;
-            width: 100%;
-        }
-
-        .close-game:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
         .game-status {
             font-size: 18px;
             font-weight: 600;
@@ -421,186 +248,55 @@
             padding: 6px 20px;
             border-radius: 40px;
         }
-
-        .bio-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 200;
-            background: transparent;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .bio-page.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .bio-card {
-            max-width: 500px;
-            width: 100%;
-            background: rgba(255, 250, 250, 0.3);
-            backdrop-filter: blur(20px);
-            border-radius: 60px 32px 60px 32px;
-            padding: 30px 28px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            text-align: center;
-            position: relative;
-            z-index: 201;
-            margin: auto;
-        }
-
-        .bio-title {
-            font-size: 38px;
-            font-weight: 800;
-            color: #2c6e8a;
-            margin-bottom: 25px;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-        }
-
         .bio-item {
-            background: rgba(255, 245, 250, 0.25);
-            backdrop-filter: blur(5px);
+            background: rgba(255,245,250,0.25);
             border-radius: 50px;
             padding: 12px 18px;
             margin-bottom: 12px;
             text-align: left;
-            font-family: 'Quicksand', sans-serif;
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        .bio-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2c6e8a;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-
-        .bio-value {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a5276;
-            word-break: break-word;
-        }
-
-        .map-container {
-            margin-top: 10px;
-            border-radius: 28px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 160px;
-            border: none;
-            display: block;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 6px;
-        }
-
+        .bio-label { font-size: 13px; font-weight: 600; color: #2c6e8a; margin-bottom: 4px; }
+        .bio-value { font-size: 17px; font-weight: 700; color: #1a5276; }
+        .map-container iframe { width: 100%; height: 160px; border: none; border-radius: 28px; margin-top: 10px; }
         .social-link {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.25);
             border-radius: 50px;
             padding: 8px 14px;
-            text-align: center;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-            color: #2c6e8a;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.2s ease;
-            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2c6e8a;
+            margin-top: 6px;
         }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.45);
-            transform: translateX(5px);
-            color: #1a5276;
-        }
-
-        .social-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .username-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
+        .social-icon { width: 32px; height: 32px; border-radius: 50%; }
         .username-item {
             font-size: 15px;
-            color: #1a5276;
-            word-break: break-all;
             padding: 5px 10px;
             border-radius: 40px;
-            background: rgba(255, 245, 250, 0.25);
-            cursor: pointer;
+            background: rgba(255,245,250,0.25);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .username-item:hover {
-            background: rgba(200, 220, 240, 0.5);
-            transform: translateX(5px);
-        }
-
-        .close-bio {
-            margin-top: 18px;
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 60px;
-            padding: 10px 24px;
-            font-weight: 700;
-            color: #2c6e8a;
+            margin-top: 5px;
             cursor: pointer;
-            width: 100%;
         }
 
+        /* МУЗЫКАЛЬНЫЙ БЛОК */
         .music-area {
             position: fixed;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255,255,255,0.3);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255,255,255,0.4);
             border-radius: 60px;
             padding: 8px 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             cursor: grab;
             white-space: nowrap;
         }
-
-        .music-area:active { cursor: grabbing; }
-        .music-area.dragging { transition: none; opacity: 0.8; cursor: grabbing; }
-
         .now-playing {
             font-family: 'Quicksand', sans-serif;
             font-weight: 600;
@@ -609,207 +305,99 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            pointer-events: none;
         }
-
-        .divider {
-            width: 1px;
-            height: 20px;
-            background: rgba(44, 110, 138, 0.5);
-            margin: 0 4px;
-        }
-
         .led-indicator {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            display: inline-block;
             animation: pulse 1.2s infinite;
         }
-        .led-green { background: rgba(70, 180, 120, 0.9); box-shadow: 0 0 5px #46b478; }
-        .led-dark { background: rgba(140, 120, 120, 0.7); animation: none; }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.2); }
-        }
-
+        .led-green { background: #46b478; box-shadow: 0 0 5px #46b478; }
+        .led-dark { background: #8c7878; animation: none; }
+        @keyframes pulse { 0% { opacity: 0.4; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
         .play-pause-btn {
             background: transparent;
             border: none;
             font-size: 18px;
             cursor: pointer;
             color: #2c6e8a;
-            transition: transform 0.2s ease;
             width: 28px;
             height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .play-pause-btn:hover { transform: scale(1.1); }
+        .volume-control { display: flex; align-items: center; gap: 6px; cursor: pointer; position: relative; }
+        .volume-icon { font-size: 16px; color: #2c6e8a; }
+        .volume-slider { width: 0; overflow: hidden; transition: width 0.25s ease; opacity: 0; }
+        .volume-control:hover .volume-slider { width: 70px; opacity: 1; }
+        .volume-slider input { width: 100%; cursor: pointer; background: #2c6e8a; height: 3px; border-radius: 3px; }
 
-        .volume-control { 
-            display: flex; 
-            align-items: center; 
-            gap: 6px; 
-            cursor: pointer;
-            position: relative;
-        }
-        .volume-icon { 
-            font-size: 16px; 
-            color: #2c6e8a;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .volume-icon:hover { transform: scale(1.05); }
-        
-        .volume-slider { 
-            width: 0; 
-            overflow: hidden; 
-            transition: width 0.25s ease, opacity 0.2s ease;
-            opacity: 0;
-        }
-        .volume-control:hover .volume-slider { 
-            width: 70px; 
-            opacity: 1;
-        }
-        .volume-slider input { 
-            width: 100%; 
-            cursor: pointer; 
-            background: #2c6e8a; 
-            height: 3px; 
-            border-radius: 3px;
-            -webkit-appearance: none;
-        }
-        .volume-slider input:focus { outline: none; }
-        .volume-slider input::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #2c6e8a;
-            cursor: pointer;
-            border: none;
-        }
-
-        /* ===== АДАПТИВ ПОД ТЕЛЕФОНЫ ===== */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 16px 20px;
-            }
-            .main-card {
-                padding: 20px 18px 30px 18px;
-                border-radius: 40px 28px 44px 28px;
-            }
-            .title-main {
-                font-size: 38px;
-            }
-            .links-container {
-                gap: 12px;
-            }
-            .link-block {
-                padding: 6px 16px 6px 10px;
-            }
-            .link-icon {
-                width: 42px;
-                height: 42px;
-            }
-            .link-text {
-                font-size: 18px;
-            }
-            .double-buttons {
-                gap: 12px;
-                margin-top: 18px;
-            }
-            .half-btn {
-                padding: 10px 8px;
-                font-size: 16px;
-            }
-            .separator-wrap {
-                margin-top: 24px;
-            }
-            .signature {
-                font-size: 12px;
-                padding: 4px 12px;
-            }
+        /* ===== ДЕСКТОПНАЯ ВЕРСИЯ (гифки сбоку) ===== */
+        @media (min-width: 769px) {
+            body { padding: 40px 20px 60px; display: flex; justify-content: center; align-items: center; }
+            .desktop-layout { display: flex; gap: 30px; align-items: flex-start; justify-content: center; max-width: 900px; width: 100%; margin: 0 auto; }
             .gif-section {
-                padding: 12px 10px;
-                gap: 10px;
-                border-radius: 28px;
+                position: sticky;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 140px;
+                background: rgba(255,250,250,0.25);
+                backdrop-filter: blur(12px);
+                border-radius: 32px;
+                padding: 15px 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                flex-shrink: 0;
             }
-            .gif-item {
-                max-width: 100px;
-            }
-            .game-card {
-                padding: 22px 20px;
-                border-radius: 48px 28px 48px 28px;
-            }
-            .game-title {
-                font-size: 32px;
-            }
-            .score-board {
-                padding: 8px 18px;
-                font-size: 16px;
-            }
-            .cell {
-                font-size: 48px;
-                border-radius: 24px;
-            }
-            .tic-tac-grid {
-                gap: 10px;
-                padding: 16px;
-            }
-            .bio-card {
-                padding: 22px 20px;
-                border-radius: 48px 28px 48px 28px;
-            }
-            .bio-title {
-                font-size: 32px;
-            }
-            .bio-item {
-                padding: 10px 14px;
-            }
-            .map-container iframe {
-                height: 130px;
-            }
-            .music-area {
-                padding: 6px 14px;
-                gap: 8px;
-            }
-            .now-playing {
-                font-size: 12px;
-            }
-            .play-pause-btn {
-                font-size: 14px;
-                width: 24px;
-                height: 24px;
-            }
-            .volume-icon {
-                font-size: 13px;
-            }
-            .volume-control:hover .volume-slider {
-                width: 60px;
-            }
+            .gif-item { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+            .main-card { margin: 0; }
         }
 
+        /* ===== МОБИЛЬНАЯ ВЕРСИЯ (гифки внизу на всю ширину) ===== */
+        @media (max-width: 768px) {
+            body { padding: 20px 16px 20px; display: block; }
+            .mobile-container { display: flex; flex-direction: column; gap: 16px; max-width: 100%; margin: 0 auto; }
+            .main-card { padding: 20px 18px 30px 18px; border-radius: 40px 28px 44px 28px; }
+            .title-main { font-size: 38px; }
+            .link-icon { width: 42px; height: 42px; }
+            .link-text { font-size: 18px; }
+            .half-btn { padding: 10px 8px; font-size: 16px; }
+            .separator-wrap { margin-top: 24px; }
+            .signature { font-size: 12px; padding: 4px 12px; }
+            .game-card, .bio-card { padding: 22px 20px; border-radius: 48px 28px 48px 28px; }
+            .game-title, .bio-title { font-size: 32px; }
+            .cell { font-size: 48px; border-radius: 24px; }
+            .tic-tac-grid { gap: 10px; padding: 16px; }
+            .score-board { font-size: 16px; padding: 8px 18px; }
+            .bio-item { padding: 10px 14px; }
+            .map-container iframe { height: 130px; }
+            
+            /* ГИФКИ ВНИЗУ НА ВСЮ ШИРИНУ */
+            .gif-section {
+                width: 100%;
+                background: rgba(255,250,250,0.25);
+                backdrop-filter: blur(12px);
+                border-radius: 28px;
+                padding: 12px 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                border: 1px solid rgba(255,255,255,0.3);
+            }
+            .gif-item { flex: 1; max-width: 100px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+            .gif-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+            .music-area { padding: 6px 14px; gap: 8px; }
+            .now-playing { font-size: 12px; }
+            .play-pause-btn { font-size: 14px; width: 24px; height: 24px; }
+            .volume-icon { font-size: 13px; }
+        }
         @media (max-width: 480px) {
-            .title-main {
-                font-size: 32px;
-            }
-            .link-text {
-                font-size: 16px;
-            }
-            .link-icon {
-                width: 38px;
-                height: 38px;
-            }
-            .cell {
-                font-size: 40px;
-            }
-            .gif-item {
-                max-width: 80px;
-            }
+            .title-main { font-size: 32px; }
+            .link-text { font-size: 16px; }
+            .link-icon { width: 38px; height: 38px; }
+            .cell { font-size: 40px; }
+            .gif-item { max-width: 80px; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -819,14 +407,15 @@
 <img class="bio-bg" id="bioBg" alt="фон био">
 <div class="overlay"></div>
 
-<div class="content-wrapper">
-    <div id="mainPage" class="main-card">
+<!-- Десктопный контейнер -->
+<div class="desktop-layout" style="display: none;" id="desktopLayout">
+    <div class="main-card" id="mainCardDesktop">
         <div class="title-wrapper"><div class="title-main">Переходник</div></div>
         <div class="links-container">
-            <div class="link-block"><img class="link-icon" src="my.png" alt="my" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
-            <div class="link-block"><img class="link-icon" src="channel.png" alt="channel" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kiteechannel" target="_blank"><span class="link-text">Канальчик</span></a></div>
-            <div class="link-block"><img class="link-icon" src="shop.png" alt="shop" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/ShopKitee" target="_blank"><span class="link-text">Шоп</span></a></div>
-            <div class="link-block"><img class="link-icon" src="trade.png" alt="trade" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/TradeK1t" target="_blank"><span class="link-text">Чат трейдов</span></a></div>
+            <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
+            <div class="link-block"><img class="link-icon" src="channel.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kiteechannel" target="_blank"><span class="link-text">Канальчик</span></a></div>
+            <div class="link-block"><img class="link-icon" src="shop.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/ShopKitee" target="_blank"><span class="link-text">Шоп</span></a></div>
+            <div class="link-block"><img class="link-icon" src="trade.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/TradeK1t" target="_blank"><span class="link-text">Чат трейдов</span></a></div>
         </div>
         <div class="double-buttons">
             <button class="half-btn" id="bioButton">Bio</button>
@@ -835,14 +424,38 @@
         <div class="separator-wrap"><hr></div>
         <div class="signature">by kqurokov</div><div class="clearfix"></div>
     </div>
-
-    <div class="gif-section" id="gifSection">
-        <div class="gif-item"><img id="gif1" alt="gif"></div>
-        <div class="gif-item"><img id="gif2" alt="gif"></div>
-        <div class="gif-item"><img id="gif3" alt="gif"></div>
+    <div class="gif-section" id="gifSectionDesktop">
+        <div class="gif-item"><img id="gif1Desk" alt="gif"></div>
+        <div class="gif-item"><img id="gif2Desk" alt="gif"></div>
+        <div class="gif-item"><img id="gif3Desk" alt="gif"></div>
     </div>
 </div>
 
+<!-- Мобильный контейнер -->
+<div class="mobile-container" style="display: none;" id="mobileContainer">
+    <div class="main-card" id="mainCardMobile">
+        <div class="title-wrapper"><div class="title-main">Переходник</div></div>
+        <div class="links-container">
+            <div class="link-block"><img class="link-icon" src="my.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kayakqurro" target="_blank"><span class="link-text">Моя личка</span></a></div>
+            <div class="link-block"><img class="link-icon" src="channel.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/kiteechannel" target="_blank"><span class="link-text">Канальчик</span></a></div>
+            <div class="link-block"><img class="link-icon" src="shop.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/ShopKitee" target="_blank"><span class="link-text">Шоп</span></a></div>
+            <div class="link-block"><img class="link-icon" src="trade.png" onerror="this.style.display='none'"><a class="link-item" href="https://t.me/TradeK1t" target="_blank"><span class="link-text">Чат трейдов</span></a></div>
+        </div>
+        <div class="double-buttons">
+            <button class="half-btn" id="bioButtonMob">Bio</button>
+            <button class="half-btn" id="gameButtonMob">Игра</button>
+        </div>
+        <div class="separator-wrap"><hr></div>
+        <div class="signature">by kqurokov</div><div class="clearfix"></div>
+    </div>
+    <div class="gif-section" id="gifSectionMobile">
+        <div class="gif-item"><img id="gif1Mob" alt="gif"></div>
+        <div class="gif-item"><img id="gif2Mob" alt="gif"></div>
+        <div class="gif-item"><img id="gif3Mob" alt="gif"></div>
+    </div>
+</div>
+
+<!-- Bio и Game страницы (общие) -->
 <div id="bioPage" class="bio-page">
     <div class="bio-card">
         <div class="bio-title">Bio</div>
@@ -852,7 +465,7 @@
         <div class="bio-item"><div class="bio-label">Country</div><div class="bio-value">Russia, Moscow</div><div class="map-container"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=37.35%2C55.55%2C37.85%2C55.85&layer=mapnik&marker=55.75%2C37.62" loading="lazy"></iframe></div></div>
         <div class="bio-item"><div class="bio-label">Number</div><div class="bio-value" id="phoneNumber">+7 (???) ???-??-??</div></div>
         <div class="bio-item"><div class="bio-label">Usernames</div><div class="bio-value"><div class="username-list"><div class="username-item" data-username="kayakqurro">@kayakqurro</div><div class="username-item" data-username="kayakitt">@kayakitt</div><div class="username-item" data-username="kayapanesher">@kayapanesher</div></div></div></div>
-        <div class="bio-item"><div class="bio-label">Social</div><div class="bio-value"><div class="social-links"><a href="https://discord.com/users/kiterbmgo_82301" target="_blank" class="social-link"><img class="social-icon" src="ds.png" alt="discord" onerror="this.style.display='none'"> Discord</a><a href="https://www.youtube.com/@KitBMGO" target="_blank" class="social-link"><img class="social-icon" src="you.png" alt="youtube" onerror="this.style.display='none'"> YouTube</a></div></div></div>
+        <div class="bio-item"><div class="bio-label">Social</div><div class="bio-value"><div class="social-links"><a href="https://discord.com/users/kiterbmgo_82301" target="_blank" class="social-link"><img class="social-icon" src="ds.png" onerror="this.style.display='none'"> Discord</a><a href="https://www.youtube.com/@KitBMGO" target="_blank" class="social-link"><img class="social-icon" src="you.png" onerror="this.style.display='none'"> YouTube</a></div></div></div>
         <button class="close-bio" id="closeBioButton">Закрыть</button>
     </div>
 </div>
@@ -874,85 +487,90 @@
 
 <div class="music-area" id="musicArea">
     <div class="now-playing"><span id="nowPlayingText">眩しくて</span><span id="ledIndicator" class="led-indicator led-green"></span></div>
-    <div class="divider"></div>
+    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
     <button class="play-pause-btn" id="playPauseBtn">⏸</button>
-    <div class="divider"></div>
-    <div class="volume-control">
-        <span class="volume-icon" id="volumeIcon">🔊</span>
-        <div class="volume-slider">
-            <input type="range" id="volumeSlider" min="0" max="100" value="70">
-        </div>
-    </div>
+    <div class="divider" style="width:1px; height:20px; background:rgba(44,110,138,0.5); margin:0 4px;"></div>
+    <div class="volume-control"><span class="volume-icon" id="volumeIcon">🔊</span><div class="volume-slider"><input type="range" id="volumeSlider" min="0" max="100" value="70"></div></div>
 </div>
 
 <script>
     (function() {
-        function calculateAge() { const birth = new Date(2009, 4, 4); let age = new Date().getFullYear() - birth.getFullYear(); const m = new Date().getMonth() - birth.getMonth(); if (m < 0 || (m === 0 && new Date().getDate() < birth.getDate())) age--; return age; }
+        // Определяем устройство
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        // Показываем нужную версию
+        const desktopLayout = document.getElementById('desktopLayout');
+        const mobileContainer = document.getElementById('mobileContainer');
+        
+        if (isMobile) {
+            desktopLayout.style.display = 'none';
+            mobileContainer.style.display = 'flex';
+            mobileContainer.style.flexDirection = 'column';
+            mobileContainer.style.gap = '16px';
+        } else {
+            desktopLayout.style.display = 'flex';
+            mobileContainer.style.display = 'none';
+        }
+        
+        // Общие функции
+        function calculateAge() { const birth = new Date(2009,4,4); let age = new Date().getFullYear() - birth.getFullYear(); const m = new Date().getMonth() - birth.getMonth(); if (m < 0 || (m === 0 && new Date().getDate() < birth.getDate())) age--; return age; }
         document.getElementById('bioAge').innerText = calculateAge() + ' лет';
-        document.getElementById('bioName').innerText = '???';
-        document.getElementById('phoneNumber').innerText = '+7 (???) ???-??-??';
-
+        
         const mainBg = document.getElementById('mainBg'); mainBg.src = 'fon.png'; mainBg.onerror = function() { mainBg.style.display = 'none'; };
         const bioBg = document.getElementById('bioBg'); bioBg.src = 'fon2.png'; bioBg.onerror = function() { bioBg.style.display = 'none'; };
-
-        const mainPageDiv = document.getElementById('mainPage');
-        const bioPageDiv = document.getElementById('bioPage');
-        const gamePageDiv = document.getElementById('gamePage');
-        const bioBtn = document.getElementById('bioButton');
-        const gameBtn = document.getElementById('gameButton');
+        
+        // Получаем элементы в зависимости от версии
+        let bioBtns, gameBtns, gifSection;
+        if (isMobile) {
+            bioBtns = [document.getElementById('bioButtonMob')];
+            gameBtns = [document.getElementById('gameButtonMob')];
+            gifSection = document.getElementById('gifSectionMobile');
+        } else {
+            bioBtns = [document.getElementById('bioButton')];
+            gameBtns = [document.getElementById('gameButton')];
+            gifSection = document.getElementById('gifSectionDesktop');
+        }
+        
+        const bioPage = document.getElementById('bioPage');
+        const gamePage = document.getElementById('gamePage');
         const closeBioBtn = document.getElementById('closeBioButton');
         const closeGameBtn = document.getElementById('closeGameButton');
-        const gifSection = document.getElementById('gifSection');
-
+        
         function openBio() { 
-            bioPageDiv.classList.add('active'); 
-            mainPageDiv.style.opacity = '0.3'; 
-            mainPageDiv.style.pointerEvents = 'none'; 
+            bioPage.classList.add('active'); 
+            if (gifSection) gifSection.style.display = 'none';
             document.body.style.overflow = 'hidden'; 
             bioBg.classList.add('show');
-            if (gifSection) {
-                gifSection.style.display = 'none';
-            }
         }
         function closeBio() { 
-            bioPageDiv.classList.remove('active'); 
-            mainPageDiv.style.opacity = '1'; 
-            mainPageDiv.style.pointerEvents = 'auto'; 
+            bioPage.classList.remove('active'); 
+            if (gifSection) gifSection.style.display = isMobile ? 'flex' : 'flex';
             document.body.style.overflow = 'auto'; 
             bioBg.classList.remove('show');
-            if (gifSection) {
-                gifSection.style.display = 'flex';
-            }
         }
         function openGame() { 
-            gamePageDiv.classList.add('active'); 
-            mainPageDiv.style.opacity = '0.3'; 
-            mainPageDiv.style.pointerEvents = 'none'; 
+            gamePage.classList.add('active'); 
+            if (gifSection) gifSection.style.display = 'none';
             document.body.style.overflow = 'hidden'; 
             if(bioBg.classList.contains('show')) bioBg.classList.remove('show');
-            if (gifSection) {
-                gifSection.style.display = 'none';
-            }
         }
         function closeGame() { 
-            gamePageDiv.classList.remove('active'); 
-            mainPageDiv.style.opacity = '1'; 
-            mainPageDiv.style.pointerEvents = 'auto'; 
+            gamePage.classList.remove('active'); 
+            if (gifSection) gifSection.style.display = isMobile ? 'flex' : 'flex';
             document.body.style.overflow = 'auto';
-            if (gifSection) {
-                gifSection.style.display = 'flex';
-            }
         }
-
-        bioBtn.addEventListener('click', openBio);
-        gameBtn.addEventListener('click', openGame);
+        
+        bioBtns.forEach(btn => btn.addEventListener('click', openBio));
+        gameBtns.forEach(btn => btn.addEventListener('click', openGame));
         closeBioBtn.addEventListener('click', closeBio);
         closeGameBtn.addEventListener('click', closeGame);
-        bioPageDiv.addEventListener('click', (e) => { if (e.target === bioPageDiv) closeBio(); });
-        gamePageDiv.addEventListener('click', (e) => { if (e.target === gamePageDiv) closeGame(); });
-
+        bioPage.addEventListener('click', (e) => { if (e.target === bioPage) closeBio(); });
+        gamePage.addEventListener('click', (e) => { if (e.target === gamePage) closeGame(); });
+        
+        // Usernames
         document.querySelectorAll('.username-item').forEach(el => { el.addEventListener('click', () => { window.open(`https://t.me/${el.getAttribute('data-username')}`, '_blank'); }); });
-
+        
+        // Игра
         let board = Array(9).fill(null);
         let currentPlayer = 'X';
         let gameActive = true;
@@ -961,7 +579,7 @@
         const statusDiv = document.getElementById('gameStatus');
         const scoreXSpan = document.getElementById('scoreX');
         const scoreOSpan = document.getElementById('scoreO');
-
+        
         function updateScoreUI() { scoreXSpan.innerText = scoreX; scoreOSpan.innerText = scoreO; }
         function updateBoardUI() { cells.forEach((cell, idx) => { cell.innerText = board[idx] || ''; }); }
         function checkWinner(boardArr) {
@@ -1028,12 +646,27 @@
         cells.forEach(cell => cell.addEventListener('click', handleCellClick));
         document.getElementById('resetGameBtn').addEventListener('click', () => { resetGameBoard(); if(currentPlayer === 'O') botMove(); });
         resetGameBoard();
-
+        
+        // GIF анимация
         const gifFiles = ['1.gif', '2.gif', '3.gif', '4.gif', '5.gif', '6.gif'];
         function getRandomGifs() { const shuffled = [...gifFiles]; for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];} return shuffled.slice(0,3); }
-        function updateGifs() { const gifs = getRandomGifs(); [document.getElementById('gif1'),document.getElementById('gif2'),document.getElementById('gif3')].forEach((img,i)=>{ if(img) { img.src = gifs[i]; img.onerror = ()=>img.src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%232c6e8a"/%3E%3Ctext x="50" y="55" fill="white" font-size="12"%3Egif%3C/text%3E%3C/svg%3E'; } }); }
-        updateGifs(); setInterval(()=>{ const newG = getRandomGifs(); [document.getElementById('gif1'),document.getElementById('gif2'),document.getElementById('gif3')].forEach((img,i)=>{ if(img) { img.style.opacity='0.5'; setTimeout(()=>{ img.src=newG[i]; img.style.opacity='1'; },150); } }); }, 8000);
-
+        function updateGifs() {
+            const gifs = getRandomGifs();
+            const gifImgs = isMobile ? 
+                [document.getElementById('gif1Mob'), document.getElementById('gif2Mob'), document.getElementById('gif3Mob')] :
+                [document.getElementById('gif1Desk'), document.getElementById('gif2Desk'), document.getElementById('gif3Desk')];
+            gifImgs.forEach((img,i)=>{ if(img) { img.src = gifs[i]; img.onerror = ()=>img.src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%232c6e8a"/%3E%3Ctext x="50" y="55" fill="white" font-size="12"%3Egif%3C/text%3E%3C/svg%3E'; } });
+        }
+        updateGifs(); 
+        setInterval(()=>{ 
+            const newG = getRandomGifs(); 
+            const gifImgs = isMobile ? 
+                [document.getElementById('gif1Mob'), document.getElementById('gif2Mob'), document.getElementById('gif3Mob')] :
+                [document.getElementById('gif1Desk'), document.getElementById('gif2Desk'), document.getElementById('gif3Desk')];
+            gifImgs.forEach((img,i)=>{ if(img) { img.style.opacity='0.5'; setTimeout(()=>{ img.src=newG[i]; img.style.opacity='1'; },150); } }); 
+        }, 8000);
+        
+        // Музыка
         const playlist = ['1.mp3', '2.mp3', '3.mp3'];
         const trackNames = ['Jiwataneho', 'いくつかの夜_いくつかのさよなら', '眩しくて'];
         let currentTrackIndex = 0, audio = new Audio(), isPlaying = false;
@@ -1042,26 +675,19 @@
         const led = document.getElementById('ledIndicator');
         const volSlider = document.getElementById('volumeSlider');
         const volIcon = document.getElementById('volumeIcon');
-        
         audio.volume = 0.7;
-        
         function updateNow() { nowPlayingSpan.textContent = trackNames[currentTrackIndex]; }
         function loadTrack(idx) { audio.src = playlist[idx]; audio.load(); updateNow(); }
         function playTrack() { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{ isPlaying=false; playPause.textContent='▶'; led.classList.add('led-dark'); led.classList.remove('led-green'); }); }
         function nextTrack() { currentTrackIndex = (currentTrackIndex+1)%playlist.length; loadTrack(currentTrackIndex); if(isPlaying) playTrack(); }
-        
         audio.addEventListener('ended', nextTrack);
         volSlider.addEventListener('input', (e)=>{ let v=e.target.value/100; audio.volume=v; volIcon.textContent=v===0?'🔇':v<0.4?'🔈':v<0.7?'🔉':'🔊'; });
-        
-        function togglePlay() { 
-            if(isPlaying){ audio.pause(); isPlaying=false; playPause.textContent='▶'; led.classList.add('led-dark'); led.classList.remove('led-green'); } 
-            else { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); } 
-        }
-        
+        function togglePlay() { if(isPlaying){ audio.pause(); isPlaying=false; playPause.textContent='▶'; led.classList.add('led-dark'); led.classList.remove('led-green'); } else { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); } }
         playPause.addEventListener('click', togglePlay);
         loadTrack(0);
         setTimeout(() => { audio.play().then(()=>{ isPlaying=true; playPause.textContent='⏸'; led.classList.add('led-green'); led.classList.remove('led-dark'); }).catch(()=>{}); }, 100);
         
+        // Перетаскивание музыки
         const musicArea = document.getElementById('musicArea');
         function savePos() { const rect = musicArea.getBoundingClientRect(); localStorage.setItem('musicAreaPosition', JSON.stringify({ left: rect.left, top: rect.top })); }
         function loadPos() { const saved = localStorage.getItem('musicAreaPosition'); if(saved){ const pos=JSON.parse(saved); musicArea.style.left=pos.left+'px'; musicArea.style.top=pos.top+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; } else { musicArea.style.left='50%'; musicArea.style.top='20px'; musicArea.style.transform='translateX(-50%)'; } }
@@ -1070,7 +696,6 @@
         musicArea.addEventListener('mousedown',(e)=>{ if(e.target.closest('.play-pause-btn')||e.target.closest('.volume-control')) return; drag=true; startX=e.clientX; startY=e.clientY; const rect=musicArea.getBoundingClientRect(); elX=rect.left; elY=rect.top; musicArea.style.transition='none'; musicArea.classList.add('dragging'); });
         window.addEventListener('mousemove',(e)=>{ if(!drag) return; let nx=elX+(e.clientX-startX), ny=elY+(e.clientY-startY); nx=Math.max(5,Math.min(window.innerWidth-musicArea.offsetWidth-5,nx)); ny=Math.max(5,Math.min(window.innerHeight-musicArea.offsetHeight-5,ny)); musicArea.style.left=nx+'px'; musicArea.style.top=ny+'px'; musicArea.style.right='auto'; musicArea.style.transform='none'; });
         window.addEventListener('mouseup',()=>{ if(drag){ drag=false; musicArea.classList.remove('dragging'); musicArea.style.transition=''; savePos(); } });
-        volIcon.textContent = '🔊';
     })();
 </script>
 </body>
